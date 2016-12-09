@@ -2,7 +2,7 @@
 layout: post
 title:  "selfishness in learning"
 date:   2016-12-3 19:45:31 +0530
-categories: ["teaching", "science", "life"]
+categories: ["teaching"]
 author: "nowak"
 ---
 
