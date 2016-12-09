@@ -8,7 +8,7 @@ Gravity is an unopinionated theme for Jekyll, the awesome static site generator.
 
 Some General Instructions for Jekyll
 
-<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.socialexplorer.com/bcb2cdfb5a/embed" width="1200" height="750" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.youtube.com" width="1200" height="750" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
