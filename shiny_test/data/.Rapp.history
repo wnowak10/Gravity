@@ -1,5 +1,0 @@
-load("/Users/wnowak/opportunity/shiny_test/data/counties.rds")
-counties
-x=load("/Users/wnowak/opportunity/shiny_test/data/counties.rds")
-xx=load("/Users/wnowak/opportunity/shiny_test/data/counties.rds")
-abc=load("/Users/wnowak/opportunity/shiny_test/data/counties.rds")
