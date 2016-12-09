@@ -7,4 +7,4 @@ author: "nowak"
 ---
 
 
-![image-titll-here](/Users/wnowak/Desktop/IMG_2614.jpg){:class="img-responsive"}
+![image-titll-here](/Users/wnowak/wnowak10.github.io/_includes/IMG_2614.jpg){:class="img-responsive"}
