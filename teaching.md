@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: Science
-permalink: /science/
-tagline: "Humanity is overrated."
-category: "science"
+title: Teaching
+permalink: /teaching/
+tagline: "is hard to do"
+category: "teaching"
 ---
