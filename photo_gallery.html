@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<ul class="photo-gallery">
+	{% for image in site.photogallery %}
+	<li>
+		<img src="{{ image.image.path }}">
+	</li>
+
+	{% endfor %}
+
+</ul>
