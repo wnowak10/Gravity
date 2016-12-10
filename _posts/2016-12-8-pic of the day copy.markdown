@@ -20,5 +20,5 @@ author: "nowak"
 
  
 <li>
-            {% include IMG_2614.jpg %}
+            {% include img.html %}
  </li>
