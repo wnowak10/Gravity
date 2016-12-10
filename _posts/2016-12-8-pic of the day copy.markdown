@@ -8,4 +8,5 @@ author: "nowak"
 
 
 
-{% include image name="/Users/wnowak/wnowak10.github.io/_includes/IMG_2614.jpg" caption="Sharing my blog on LinkedIn" %}
+
+![Picture description](/Users/wnowak/wnowak10.github.io/_includes/IMG_2614.jpg){: .center-image }
