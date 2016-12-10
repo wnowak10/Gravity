@@ -9,4 +9,7 @@ author: "nowak"
 
 
 
-![Picture description](/Users/wnowak/wnowak10.github.io/_includes/IMG_2614.jpg){: .center-image }
+![smile]
+
+[smile]: /Users/wnowak/wnowak10.github.io/_includes/IMG_2614.jpg
+{: .center-image }
