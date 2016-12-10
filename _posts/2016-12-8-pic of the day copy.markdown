@@ -11,5 +11,5 @@ author: "nowak"
 
 ![smile]
 
-[smile]: /Users/wnowak/wnowak10.github.io/_includes/IMG_2614.jpg
+[smile]: ../_includes/IMG_2614.jpg
 {: .center-image }
