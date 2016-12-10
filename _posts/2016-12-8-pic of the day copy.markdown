@@ -11,5 +11,5 @@ author: "nowak"
 
 ![smile]
 
-[smile]: ../_includes/IMG_2614.jpg
+[smile]: IMG_2614.jpg
 {: .center-image }
