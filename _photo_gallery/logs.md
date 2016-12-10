@@ -1,4 +1,4 @@
 ---
-image_path /images/logs.jpg
+image_path: /images/logs.jpg
 title: Logs
 ---
