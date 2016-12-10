@@ -13,3 +13,7 @@ author: "nowak"
 
 [smile]: IMG_2614.jpg
 {: .center-image }
+
+<li>
+            {% include icon-github.html %}
+ </li>
