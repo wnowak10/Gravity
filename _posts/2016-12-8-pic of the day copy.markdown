@@ -17,3 +17,8 @@ author: "nowak"
 <li>
             {% include icon-github.html %}
  </li>
+
+ 
+<li>
+            {% include IMG_2614.jpg %}
+ </li>
