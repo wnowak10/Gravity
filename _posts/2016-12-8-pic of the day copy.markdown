@@ -11,7 +11,7 @@ author: "nowak"
 
 ![smile]
 
-[smile]: IMG_2614.jpg
+[smile]: includes/IMG_2614.jpg
 {: .center-image }
 
 <li>
