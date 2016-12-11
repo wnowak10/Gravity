@@ -6,6 +6,8 @@ categories: teaching
 author: "nowak"
 ---
 
+# header
+
 we need to be clearer about ultimate aim.
 
 most kids struggle to motivate, and we poke and prod as a result. do math. like math. love math! popular culture paints it as uncool, and we paint it as productive, beautiful, and worthy.
