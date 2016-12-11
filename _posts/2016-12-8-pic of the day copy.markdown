@@ -6,7 +6,7 @@ categories: photo
 author: "nowak"
 ---
 
-
+<img src="http://www.worldpressphoto.org/sites/default/files/styles/gallery_main_image/public/archive/2016/stories/SPS/1/sciel1umbqlvbqhldpqj.jpg?itok=56WQL5hq" alt="Smiley face" height="42" width="42">
 
 
 ![smile]
