@@ -11,7 +11,7 @@ author: "nowak"
 
 ![My helpful screenshot]({{ site.url }}/images/logs.jpg)
 
-
+<!-- 
 ![smile]
 
 [smile]: includes/IMG_2614.jpg
@@ -27,3 +27,4 @@ author: "nowak"
  </li>
 
 # hi
+ -->
