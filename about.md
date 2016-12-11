@@ -4,6 +4,9 @@ title : About
 permalink: /about/
 ---
 
+![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+
+
 <h2>Gravity</h2>
 <p>Minimal, text based, liberal Jekyll theme<br>for sharing your awesome ideas.</p>
 <br>
