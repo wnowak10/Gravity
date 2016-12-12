@@ -10,7 +10,7 @@ published: true
 we need to be clearer about ultimate aim.
 
 
- # try again header
+# try again header
  
 most kids struggle to motivate, and we poke and prod as a result. do math. like math. love math! popular culture paints it as uncool, and we paint it as productive, beautiful, and worthy.
 
