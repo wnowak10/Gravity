@@ -4,7 +4,7 @@ title : About
 permalink: /about/
 ---
 
-![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+![My helpful screenshot](http://img.phombo.com/img1/photocombo/1635162/beautiful-autumn-scenery-wallpapers-in-roadside.jpg)
 
 
 <h2>Gravity</h2>
