@@ -9,7 +9,7 @@
 title: Plain and simple
 email: wnowak10@gmail.com
 description: A NICE SITEEEEEEEEEE
-baseurl: "blog" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "http://wnowak10.github.io" # the base hostname & protocol for your site
 twitter_username: wnowak10
 github_username:  wnowak10
