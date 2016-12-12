@@ -6,3 +6,6 @@ categories: photo
 author: "nowak"
 ---
 
+
+![](/images/logs.jpg)
+*caption*
