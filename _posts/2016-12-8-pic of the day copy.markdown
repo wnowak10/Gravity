@@ -7,5 +7,5 @@ author: "wnowak"
 ---
 
 
-![](/images/logs.jpg =1000x1000)
+![](/images/logs.jpg)
 *caption*
