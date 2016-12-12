@@ -10,4 +10,4 @@ author: "nowak"
 ![](/images/logs.jpg)
 *caption* -->
 
-<img src="/images/logs.jpg" alt="Drawing" style="width: 5000px; height: 5000px"/>
+<img src="/images/logs.jpg" alt="Drawing" style="width: 7000px; height: 5000px"/>
