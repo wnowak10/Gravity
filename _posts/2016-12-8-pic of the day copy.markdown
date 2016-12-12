@@ -10,4 +10,6 @@ author: "nowak"
 ![](/images/logs.jpg)
 *caption* -->
 
-<img src="/images/logs.jpg" alt="Drawing" style="width: 740px; height: 555px"/>
+<a href="espn.com"
+	<img src="/images/logs.jpg" alt="Drawing" style="width: 740px; height: 555px"/>
+</a>
