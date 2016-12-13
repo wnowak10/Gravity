@@ -11,6 +11,6 @@ image: /images/logs.jpg
 ![](/images/logs.jpg)
 *caption* -->
 
-<a href="{{site.url}}/photo.html">
+<a href="{{site.url}}/piconly">
 	<img src="/images/logs.jpg" alt="Drawing" style="width: 740px; height: 555px"/>
 </a>
