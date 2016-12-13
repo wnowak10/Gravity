@@ -10,8 +10,6 @@ This is a me:
   <img src="/images/bike.jpg" alt="My_bike" style="width: 740px; height: 555px"/>
 </a>
 
-This blog is a space for me to post my musings with the world. Any views expressed are just mine, and are of course always incomplete. 
-
 These are some of my online profiles, where you can find a bit more about me. Please reach out with any questions, comments, or concerns!
 
 [Facebook](https://www.facebook.com/people/William-Nowak/2418349)
@@ -21,4 +19,6 @@ These are some of my online profiles, where you can find a bit more about me. Pl
 [GitHub](https://github.com/wnowak10/)
 
 [Kaggle](https://www.kaggle.com/wpncrh)
+
+[Strava](https://www.strava.com/athletes/164214)
 
