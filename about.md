@@ -12,19 +12,16 @@ This is a me:
 
 These are some of my online profiles, where you can find a bit more about me. Please reach out with any questions, comments, or concerns!
 
-<li>
-	
-[Facebook](https://www.facebook.com/people/William-Nowak/2418349)
+* [Facebook](https://www.facebook.com/people/William-Nowak/2418349)
 
-[LinkedIn](https://www.linkedin.com/in/william-nowak-a2172b16)
+* [LinkedIn](https://www.linkedin.com/in/william-nowak-a2172b16)
 
-[GitHub](https://github.com/wnowak10/)
+* [GitHub](https://github.com/wnowak10/)
 
-[Kaggle](https://www.kaggle.com/wpncrh)
+* [Kaggle](https://www.kaggle.com/wpncrh)
 
-[Strava](https://www.strava.com/athletes/164214)
+* [Strava](https://www.strava.com/athletes/164214)
 
-</li>
 
 
 
