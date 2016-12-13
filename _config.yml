@@ -8,10 +8,10 @@
 # Site settings
 title: A witty title
 email: wnowak10@gmail.com
-description: Various musings on life, data science, teaching, and more. Also, some pictures. 
+description: Writings on life, data science, teaching, and more.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://wnowak10.github.io" # the base hostname & protocol for your site
-twitter_username: wnowak10
+# twitter_username: wnowak10
 github_username:  wnowak10
 paginate: 5
 
