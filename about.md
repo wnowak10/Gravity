@@ -7,7 +7,7 @@ permalink: /about/
 This is a me:
 
 <a>
-  <img src="/images/bike.jpg" alt="My_bike" style="width: 440px; height: 300px"/>
+  <img src="/images/bike.jpg" alt="My_bike" style="width: 604px; height: 453px"/>
 </a>
 
 These are some of my online profiles, where you can find a bit more about me. Please reach out with any questions, comments, or concerns!
