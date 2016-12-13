@@ -1,15 +1,13 @@
 ---
 layout: post
-title:  "POTD"
-date:   2016-12-7 19:45:31 +0530
-categories: photo
-author: "nowak"
+title:  "Teaching Selflessness"
+date:   2016-12-14 19:45:31 +0530
+categories: teaching
+author: "wnowak10"
 ---
 
 we need to be clearer about ultimate aim.
 
-
-# try again header
  
 most kids struggle to motivate, and we poke and prod as a result. do math. like math. love math! popular culture paints it as uncool, and we paint it as productive, beautiful, and worthy.
 

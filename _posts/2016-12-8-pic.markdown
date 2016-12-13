@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "POTD"
-date:   2016-12-7 19:45:31 +0530
-categories: photo
-author: "nowak"
+title:  "Pic of the Day - "
+date:   2016-6-6 19:45:31 +0530
+categories: photos
+author: "wnowak10"
 image: /images/logs.jpg
 ---
 
