@@ -22,40 +22,54 @@ So, here's the plan.
 2. Assuming the decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. 
 
 So, let's begin... 
-
+<br>
 -----
 <br>
 <br>
 <br>
 
 My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information rich split. For example, if I were trying to classify morning beverage using "Temperature" and "Cloud cover" as classifiers (as shown in the following table)
+<br>
+<br>
 
 <a>
 	<img src="/images/coffeetable.png" alt="Drawing" style="width: 357px; height: 365px"/>
 </a>
-
+<br>
+<br>
 
 What would be the optimal first split for the tree?
+<br>
+<br>
 
 <a>
 	<img src="/images/keep-calm-and-think-about-it-17.png" alt="Drawing" style="width: 600px; height: 700px"/>
 </a>
+<br>
+<br>
 
 Actually, did you think about it? Hopefully.
 
 We can see that splitting on the temp is the best call, as if temps are below 80, we can correctly bin every beverage choice. We don't even need the information provided about the cloud cover. 
-
+<br>
+<br>
 
 <a>
 	<img src="/images/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
+<br>
+<br>
 This basic split shows the "tree" idea:
 
+<br>
+<br>
 
 <a>
-	<img src="/images/basic_tree.png" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/basic_tree.png" alt="Drawing" style="width: 550; height: 550"/>
 </a>
+<br>
+<br>
 
 ---
 
