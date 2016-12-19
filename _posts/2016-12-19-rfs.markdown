@@ -137,6 +137,6 @@ David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://
 
 Other useful resources:
 
-[XGBoost docs](http://xgboost.readthedocs.io/en/latest/model.html)
-[Vidhya](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
-[Quora](https://www.quora.com/topic/Random-Forests-Algorithm)
+- [XGBoost docs](http://xgboost.readthedocs.io/en/latest/model.html)
+- [Vidhya](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
+- [Quora](https://www.quora.com/topic/Random-Forests-Algorithm)
