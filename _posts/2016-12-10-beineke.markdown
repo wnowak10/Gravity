@@ -4,10 +4,10 @@ title:  "Beinecke library, in sun"
 date:   2016-12-10 19:45:31 +0530
 categories: photos
 author: "wnowak10"
-image: /images/beinecke.jpg
+image: /images/lib.jpg
 ---
 
 
 <a>
-	<img src="/images/beinecke.jpg" alt="Library" style="width: 440px; height: 355px"/>
+	<img src="/images/lib.jpg" alt="Library" style="width: 440px; height: 355px"/>
 </a>
