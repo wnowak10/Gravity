@@ -4,7 +4,6 @@ title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, mo
 date:   2016-12-18 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
-multipage: true
 ---
 
 If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoost (in Python or R) is hugely popular and successful in solving classification problems.
@@ -126,18 +125,7 @@ Thales Sehn Körting discusses this some in this helpful [video](https://www.you
 David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf) gives a good explanation of information and entropy, so you can look 
 
 
-weewewewew
-wewe
 
-wew
-ew
-ew
-ew
-e
-w
-ew
-
-e
 <br>
 <br>
 
