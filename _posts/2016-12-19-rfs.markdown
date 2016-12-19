@@ -13,12 +13,12 @@ I am familiar with the idea of a decision tree, which is powerful in its simplic
 Algorithms that power a plain old, vanilla decision tree.
 
 
-[I want this to link to foo](#algorithms)
+[I want this to link to foo](#abc)
 
-{: id="algorithms"}
+{: id="abc"}
 ### Foo are you?
 
-<!-- - [Algorithms](#algorithms) -->
+- [How do vanilla tree algorithms even work?](#algorithms)
 - Why random forests are usefu
 - How gradient boosting applies
 - What bagging is
@@ -36,7 +36,9 @@ So, let's begin...
 <br>
 <br>
 
-# Algorithms
+
+{: id="algorithms"}
+# How do vanilla tree algorithms even work?
 
 My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information rich split. For example, if I were trying to classify morning beverage using "Temperature" and "Cloud cover" as classifiers (as shown in the following table)
 <br>
