@@ -23,8 +23,8 @@ So, here's the plan.
 
 So, let's begin... 
 <br>
------
 <br>
+-----
 <br>
 <br>
 
@@ -72,5 +72,13 @@ This basic split shows the "tree" idea:
 <br>
 
 ---
+<br>
+<br>
 
-How does the computer actually do this?
+But how does the computer actually do this?
+
+I spent some time this fall reading David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf). He talks clearly about information and entropy in Chapter 4, and I would recommend reading if these topics are at all of interest. These ideas are surely related to a decision tree, as we're looking to make a split that is most informative. 
+
+Let's try to be more rigorous about our definitions here. \#math! 
+
+I first tried to google "decision tree algorithm" 
