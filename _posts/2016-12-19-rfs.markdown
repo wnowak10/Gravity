@@ -4,6 +4,7 @@ title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, mo
 date:   2016-12-18 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
+multipage: true
 ---
 
 If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoost (in Python or R) is hugely popular and successful in solving classification problems.
@@ -77,7 +78,7 @@ This basic split shows the "tree" idea:
 
 <br>
 
-To sum up, [Wikipedia](https://en.wikipedia.org/wiki/C4.5_algorithm) gives some semi-helpful pseudo-code that explains the decision tree process (though the gorey and exciting details are absent).
+To sum up, [Wikipedia](https://en.wikipedia.org/wiki/C4.5_algorithm) gives some semi-helpful pseudo-code that explains the decision tree process (though the gory and exciting details are absent).
 
 1. Check for the above base cases.
 2. For each attribute a, find the normalized information gain ratio from splitting on a.
@@ -85,8 +86,10 @@ To sum up, [Wikipedia](https://en.wikipedia.org/wiki/C4.5_algorithm) gives some 
 4. Create a decision node that splits on a_best.
 5. Recur on the sublists obtained by splitting on a_best, and add those nodes as children of node.
 
-But how does the computer actually do this? In particular, how do they determine that attribute "a" has the highest information gain?
+It still remains to be seen: how does the computer actually do this? In particular, how do they determine that attribute "a" has the highest information gain?
 
+
+{% page_break %}
 <br>
 <br>
 
