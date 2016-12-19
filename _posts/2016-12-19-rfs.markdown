@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "How to: Use and understand XGBoost and Random Forest Classifiers"
+date:   2016-12-18 19:45:31 +0530
+categories: data_science
+author: "wnowak10"
+---
+
+If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoost (in Python or R) is hugely popular and successful in solving classification problems.
+
+I am familiar with the idea of a decision tree, which is powerful in its simplicity. But the added complexity of something like XGBoost is a bit beyond me. In particular, I don't fully understand:
+
+* Why random forests are useful.
+* How gradient boosting applies.
+* What bagging is?
+
+So, here's the plan. If you need a primer on how a decision tree works, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
+
+Assuming the decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. So, let's begin...:+1:
+
+-----
+
+sds
