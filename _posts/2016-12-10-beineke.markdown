@@ -6,10 +6,7 @@ categories: photos
 author: "wnowak10"
 ---
 
-<!-- 
-![](/images/logs.jpg)
-*caption* -->
 
-<a href="">
-	<img src="/images/beinecke.jpg" alt="Library" style="width: 740px; height: 555px"/>
+<a>
+	<img src="/images/beinecke.jpg" alt="Library" style="width: 1280; height: 992"/>
 </a>
