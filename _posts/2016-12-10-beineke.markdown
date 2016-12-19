@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Beinecke library, in sun"
+date:   2016-12-10 19:45:31 +0530
+categories: photos
+author: "wnowak10"
+---
+
+<!-- 
+![](/images/logs.jpg)
+*caption* -->
+
+<a href="">
+	<img src="/images/beinecke.jpg" alt="Drawing" style="width: 740px; height: 555px"/>
+</a>
