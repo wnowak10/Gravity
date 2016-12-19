@@ -11,5 +11,5 @@ author: "wnowak10"
 *caption* -->
 
 <a href="">
-	<img src="/images/beinecke.jpg" alt="Drawing" style="width: 740px; height: 555px"/>
+	<img src="/images/beinecke.jpg" alt="Library" style="width: 740px; height: 555px"/>
 </a>
