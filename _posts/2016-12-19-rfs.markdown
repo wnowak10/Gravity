@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to: Use and understand XGBoost and Random Forest Classifiers"
+title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, more broadly)"
 date:   2016-12-18 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
@@ -20,7 +20,7 @@ Mysteries abound! So, here's the plan.
 
 1. If you need a primer on how a decision tree works, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
 
-2. Assuming that decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. 
+2. Assuming that decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. I'll try to think through how I might go about solving the problem, and then provide research and some explanation of how the current state of the art works. 
 
 So, let's begin... 
 <br>
@@ -59,6 +59,7 @@ We can see that splitting on the temp is the best call, as if temps are below 80
 <br>
 <br>
 
+{: id="table"}
 <a>
 	<img src="/images/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
@@ -76,7 +77,7 @@ This basic split shows the "tree" idea:
 
 <br>
 
-To sum up, Wikipedia gives some semi-helpful pseudo-code that explains the decision tree process (though the gorey and exciting details are absent).
+To sum up, [Wikipedia](https://en.wikipedia.org/wiki/C4.5_algorithm) gives some semi-helpful pseudo-code that explains the decision tree process (though the gorey and exciting details are absent).
 
 1. Check for the above base cases.
 2. For each attribute a, find the normalized information gain ratio from splitting on a.
@@ -93,14 +94,26 @@ But how does the computer actually do this? In particular, how do they determine
 <br>
 <br>
 
+## My ideas...
+
 Let's try to slow down a bit and be more rigorous in our discussion here. \#math! 
 
 Assume that there are p features, and we need to determine:
 
-1. Which of the p features is best to split on?
-2. Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)?
+- Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)?
 
 (In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move.)
+
+So we need to look at each feature and then describe, numerically, how well this split does in terms of helping us acheive our end goal of classification.
+
+### For numeric variables:
+
+It seems that it'd be wise to sort the data on the numeric variable. Using our example, this would be temperature. Looking at the [table](#table) above, we'd split somewhere like 55 (the median of the temperature set). If we did this, we'd find that 100% of beverages below 55 are coffee, and 60% (3/5) of beverages above 55 degrees are coffee. Ideally, in a pure split, we'd have both nodes of the split at 100% (this would mean there is no ambiguity in the classification).
+
+
+
+## The way this actually works...
+
 
 
 Some further references that touch on these ideas:
