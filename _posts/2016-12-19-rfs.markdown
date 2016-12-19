@@ -10,9 +10,6 @@ If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoo
 
 I am familiar with the idea of a decision tree, which is powerful in its simplicity. But the added complexity of something like XGBoost is a bit beyond me. In particular, I don't fully understand:
 
-Algorithms that power a plain old, vanilla decision tree.
-
-
 
 - [How do vanilla tree algorithms even work](#algorithms)
 - Why random forests are useful
@@ -23,7 +20,7 @@ So, here's the plan.
 
 1. If you need a primer on how a decision tree works, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
 
-2. Assuming the decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. 
+2. Assuming that decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. 
 
 So, let's begin... 
 <br>
@@ -36,7 +33,7 @@ So, let's begin...
 {: id="algorithms"}
 # How do vanilla tree algorithms even work?
 
-My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information rich split. For example, if I were trying to classify morning beverage using "Temperature" and "Cloud cover" as classifiers (as shown in the following table)
+My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information-rich split (more on this later). For example, if I were trying to classify "Beverage" using "Temperature" and "Cloud cover" as classifiers (as shown in the following table)
 <br>
 <br>
 
@@ -86,9 +83,9 @@ This basic split shows the "tree" idea:
 But how does the computer actually do this?
 
 I spent some time this fall reading David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf). He talks clearly about information and entropy in Chapter 4, and I would recommend reading if these topics are at all of interest. These ideas are surely related to a decision tree, as we're looking to make a split that is most informative at each step along the way.
-
+<br>
 ---
-
+<br>
 Let's try to slow down a bit and be more rigorous in our discussion here. \#math! 
 
 Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
