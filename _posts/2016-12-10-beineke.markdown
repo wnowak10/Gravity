@@ -9,5 +9,5 @@ image: /images/beinecke.jpg
 
 
 <a>
-	<img src="/images/beinecke.jpg" alt="Library" style="width: 400; height: 200"/>
+	<img src="/images/beinecke.jpg" alt="Library" style="width: 1280px; height: 940px"/>
 </a>
