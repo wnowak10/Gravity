@@ -10,5 +10,5 @@ image: /images/logs.jpg
 
 
 <a href="{{site.url}}/piconly">
-	<img src="/images/logs.jpg" alt="Drawing" style="width: 1600; height: 900"/>
+	<img src="/images/logs.jpg" alt="Drawing" style="width: 960; height: 720"/>
 </a>

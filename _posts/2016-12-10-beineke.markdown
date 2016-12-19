@@ -9,5 +9,5 @@ image: /images/lib.jpg
 
 
 <a>
-	<img src="/images/lib.jpg" alt="Library" style="width: 1600; height: 900"/>
+	<img src="/images/lib.jpg" alt="Library" style="width: 960; height: 720"/>
 </a>
