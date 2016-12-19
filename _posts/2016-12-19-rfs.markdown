@@ -88,7 +88,6 @@ To sum up, [Wikipedia](https://en.wikipedia.org/wiki/C4.5_algorithm) gives some 
 It still remains to be seen: how does the computer actually do this? In particular, how do they determine that attribute "a" has the highest information gain?
 
 
-{% page_break %}
 <br>
 <br>
 
