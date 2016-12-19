@@ -27,6 +27,7 @@ So, let's begin...
 -----
 <br>
 <br>
+
 # How do decision trees even work, really?
 
 My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information rich split. For example, if I were trying to classify morning beverage using "Temperature" and "Cloud cover" as classifiers (as shown in the following table)
@@ -83,3 +84,9 @@ I spent some time this fall reading David MacKay's [*Infomation Theory, Inferenc
 Let's try to slow down a bit and be more rigorous in our discussion here. \#math! 
 
 Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
+
+
+#header
+
+
+# header with space?
