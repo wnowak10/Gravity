@@ -13,13 +13,9 @@ I am familiar with the idea of a decision tree, which is powerful in its simplic
 Algorithms that power a plain old, vanilla decision tree.
 
 
-[I want this to link to foo](#abc)
 
-{: id="abc"}
-### Foo are you?
-
-- [How do vanilla tree algorithms even work?](#algorithms)
-- Why random forests are usefu
+- [How do vanilla tree algorithms even work](#algorithms)
+- Why random forests are useful
 - How gradient boosting applies
 - What bagging is
 
@@ -91,12 +87,10 @@ But how does the computer actually do this?
 
 I spent some time this fall reading David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf). He talks clearly about information and entropy in Chapter 4, and I would recommend reading if these topics are at all of interest. These ideas are surely related to a decision tree, as we're looking to make a split that is most informative at each step along the way.
 
+---
+
 Let's try to slow down a bit and be more rigorous in our discussion here. \#math! 
 
 Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
 
 
-#header
-
-
-# header with space?
