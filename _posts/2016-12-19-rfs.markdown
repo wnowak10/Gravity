@@ -10,7 +10,7 @@ If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoo
 
 I am familiar with the idea of a decision tree, which is powerful in its simplicity. But the added complexity of something like XGBoost is a bit beyond me. In particular, I don't fully understand:
 
-* [Algorithms that power a plain old, vanilla decision tree.](#How-do-decision-trees-even-work,-really?)
+* [Algorithms that power a plain old, vanilla decision tree.](#how-do-decision-trees-even-work,-really?)
 * Why random forests are useful.
 * How gradient boosting applies.
 * What bagging is?
