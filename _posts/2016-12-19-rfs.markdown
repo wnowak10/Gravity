@@ -12,7 +12,13 @@ I am familiar with the idea of a decision tree, which is powerful in its simplic
 
 Algorithms that power a plain old, vanilla decision tree.
 
-- [Algorithms](#Algorithms)
+
+[I want this to link to foo](#algorithms)
+
+{: id="algorithms"}
+### Foo are you?
+
+<!-- - [Algorithms](#algorithms) -->
 - Why random forests are usefu
 - How gradient boosting applies
 - What bagging is
