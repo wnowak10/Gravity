@@ -12,7 +12,7 @@ I am familiar with the idea of a decision tree, which is powerful in its simplic
 
 Algorithms that power a plain old, vanilla decision tree.
 
-- [Algorithms that.](#Algorithms-that)
+- [Algorithms that](#Algorithms-that)
 - Why random forests are useful.
 - How gradient boosting applies.
 - What bagging is?
