@@ -73,19 +73,19 @@ This basic split shows the "tree" idea:
 <a>
 	<img src="/images/basic_tree.png" alt="Drawing" style="width: 550; height: 550"/>
 </a>
-<br>
-<br>
 
----
 <br>
-<br>
-
 But how does the computer actually do this?
 
 I spent some time this fall reading David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf). He talks clearly about information and entropy in Chapter 4, and I would recommend reading if these topics are at all of interest. These ideas are surely related to a decision tree, as we're looking to make a split that is most informative at each step along the way.
+
 <br>
+<br>
+
 ---
 <br>
+<br>
+
 Let's try to slow down a bit and be more rigorous in our discussion here. \#math! 
 
 Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
