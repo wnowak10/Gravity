@@ -6,10 +6,10 @@ categories: teaching
 author: "wnowak10"
 ---
 
-we need to be clearer about ultimate aim.
+We need to be clearer about ultimate aims of teaching.
 
  
-most kids struggle to motivate, and we poke and prod as a result. do math. like math. love math! popular culture paints it as uncool, and we paint it as productive, beautiful, and worthy.
+Most kids struggle to motivate, and we poke and prod as a result. do math. like math. love math! popular culture paints it as uncool, and we paint it as productive, beautiful, and worthy.
 
 when we overcome the first hurdle, we realize there are more to overcome. when students come to like math, they take too much pride in it. with insincere self deprecation, they will say "aw shucks, i'm a math nerd!" or "no really guys, math is cool!". but this self-effacement is actually pride manifest. they have done what was asked of them, and have safely arrive on the side of success and goodness, as they see it.
 
