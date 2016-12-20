@@ -1,47 +1,46 @@
 ---
 layout: post
-title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, more broadly)...Part I"
+title:  "How to: Understand decision tree splitting"
 date:   2016-12-18 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 ---
 
-If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoost (in Python or R) is hugely popular and successful in solving classification problems.
+This is the first part of a series where I intend to explain how decision trees work. In this, I will cover part 1 (How do vanilla tree algorithms even work?). Parts 2-4 will be in subsequent posts.
 
-I am familiar with the idea of a decision tree, which is powerful in its simplicity. But the added complexity of something like XGBoost is a bit beyond me. In particular, I don't fully understand:
-
-
-* [1. How do vanilla tree algorithms even work](#algorithms)
-	* [1.1 For categorical dependent variables](#categorical) 
-	* [1.2 For numerical dependent variables](#numerical)
+* 1. How do vanilla tree algorithms even work?
 * 2. Why random forests are useful and what ensembles are
 * 3. How gradient boosting applies
 * 4. What bagging is
 
-Mysteries abound! So, here's the plan. 
+If you need a primer on what a decision tree is, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
 
-1. If you need a primer on how a decision tree works, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
+Also, be aware that for each new idea, I'll try to first explain it in my own words, using my own generated ideas. This might mean that I use notation that differs from best practice. But, I find that it can often help me to think through problems on my own first, before delving into the literature and reading about best practices. Of course, though, I will do this too. Part I of this post entails my walking though and example and thinking through a basic tree. [Part II](#part2) of this post entails my explaining the current literature on decision tree splitting algorithms. 
 
-2. Assuming that decision trees are understood, I am going to address the questions above, while also talking about the process through which I do so. I'll try to think through how I might go about solving the problem, and then provide research and some explanation of how the current state of the art works. 
+## Table of contents
+### [- Part I -- My explanation of tree splitting](#part1)
+#### [Ia Categorical dependent variables](#catdeps)
+#### [Ib Numerical dependent variables](#numdeps)
+### [- Part II -- The experts explanation of tree splitting (or, how this actually works)](#part2)
 
-So, let's begin... 
+
+Let's begin... 
 <br>
 <br>
-
 ---
 <br>
 <br>
-
-
-{: id="algorithms"}
-# 1. How do vanilla tree algorithms even work?
+{: id="part1"}
+# Part I: Decision splitting, in my own words and thoughts.
 <br>
 
-{: id="categorical"}
+I will first talk about categorical dependent variables in section 1.1. I'll talk about using decision trees for numerical dependent variables in section 1.2. 
+
+{: id="catdeps"}
 ## 1.1 Categorical dependent variables
 <br>
 
-Let's first investigate how these things work for predicting categorical dependent variables We'll assume that this dep. var. is a binary random variable. And we'll also assume that our trees will only have two branches emanating from each node.
+Let's first investigate how these things work for predicting categorical dependent variables. We'll assume that this dependent variable is a binary random variable. And we'll also assume that our trees will only have two branches emanating from each node.
 
 My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information-rich split (more on this later). For example, if I were trying to classify "Beverage" using "Temperature" and "Cloud cover" as classifiers (as shown in the following table),
 <br>
@@ -104,21 +103,13 @@ It still remains to be seen: how does the computer actually do this? In particul
 <br>
 <br>
 
-### My ideas...
-
-Let's try to slow down a bit and be more rigorous in our discussion here. \#math! 
-
 Assume that there are p features. There n observations in our training set that we must classify. We need to determine:
 
 \- Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)? (I'll refer to this as the attribute (a) that we split on. That is, referring to an attribute a describes both the feature and the split point of that feature.)
 
-We are trying to classify a label, which can take values 1 or 0. 
+We are trying to classify a label, which can take values 1 or 0. (In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move. So we need to look at each feature and then describe, numerically, how well this split does in terms of helping us acheive our end goal of classification.
 
-(In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move.
-
-So we need to look at each feature and then describe, numerically, how well this split does in terms of helping us acheive our end goal of classification.
-
-#### For numeric variables:
+#### For numeric features:
 
 ##### Classification of split:
 
@@ -185,13 +176,21 @@ A higher e is desirable for a splitting attribute.
 
 A splitting algorithm should hope to maximize both s and e, with us weighting each contribution accordingly. For example, we could look at s<sup>m</sup>*e<sup>n</sup> where m+n = 1. Choosing m>n would further prioritize the purity of our splits, while choosing n>m would prioritize the "size" of the split.
 
-#### For categorical variables
+#### For categorical features
 
 Categorical variables are far simpler. If a categorical variable has only two outcomes (e.g. cloudy or sunny as given above), there is only one attribute to split on. We can do so and calculate s and e. If the categorical variable has n>2 outcomes, we can simply do a binary split for each outcome. So, for a categorical variable with n outcomes, we'll create n attributes and judge each split.
 
 As an example: if instead of just cloudy and sunny, we also had snowy as a weather outcome, we'd perform 3 splits (cloudy v. not cloudy; sunny v. not sunny; snowy v. not snowy) and judge each.
 
-### The way this actually works...
+
+{: id="numerical"}
+## 1.2 Numerical dependent variables
+
+The situation is a bit simpler for numerical dependent variables. See ESL text.
+
+
+{: id="part2"}
+# Part II: The way this all actually works...
 
 Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. 
 
@@ -204,10 +203,6 @@ There are a lot of different methods for splitting that I read about. [Vidhya an
 - Information gain
 
 
-{: id="numerical"}
-## 1.2 Numerical dependent variables
-
-The situation is a bit simpler for dependent variables. 
 
 
 
@@ -219,8 +214,22 @@ The situation is a bit simpler for dependent variables.
 
 
 
-This post is getting long. If you made it through this, move ahead to part 2 where I talk about forests and ensembles. 
 
+
+
+
+
+
+
+
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 - greediness?
