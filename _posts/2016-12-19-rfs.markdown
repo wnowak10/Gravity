@@ -156,19 +156,21 @@ In addition to judging our split attribute on its ability to successfully classi
 
 A good attribute splits data evenly. In example 1 below, the attribute acheives an s score of 1 + .89 = 1.89. However, it doesn't split the data very evenly.
 
-** Example 1: **
+\- Example 1: 
+
 <a>
 	<img src="/images/loweven.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
 In example 2, we have a worse split, in that s = .8 + .6 = 1.4. 
 
-** Example 2: **
+\- Example 2:
+
 <a>
 	<img src="/images/higheven.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
-However, we are doing more work here. Given that we are trying to productively classify all data points, an attribute that produces a more even split should be prized for its efficiency, in some sense. We will have to rely on fewer nodes of a decision tree if each node can more evenly split the data.
+However, we are "doing more work" here. Given that we are trying to productively classify all data points, an attribute that produces a more even split should be prized for its efficiency, in some sense. We will have to rely on fewer nodes of a decision tree if each node can more evenly split the data.
 
 We can introduce a new metric. We will call this metric e. e = log(c1) + log(c2). For example 1, we find e<sub>1</sub> = log(1)+log(9) = .954. In example 2, e<sub>2</sub> = log(5)+log(5) = 1.379. 
 
