@@ -123,7 +123,7 @@ It seems that it'd be wise to sort the data on the numeric variable. Using our e
 
 Ideally, in a pure split, we'd have both nodes of the split at 100% (this would mean there is no ambiguity in the classification). 
 
-One idea for a helpful numerical descriptor could be s, where s = b1 + b2, where b1 = max(x, 1-x) with x = sum(elements in branch 1)/(c<sub>1</sub>), where c<sub>1</sub> is the number of elements in branch 1 (c for cardinality). b2 is defined similarly for the second branch. 
+One idea for a helpful numerical descriptor could be s, where s = b1 + b2, where b1 = max(x, 1-x) with x = sum(l<sub>i</sub>)/(c<sub>1</sub>), where l<sub>i</sub> is the ith label and c<sub>1</sub> is the number of elements in branch 1 (c for cardinality). b2 is defined similarly for the second branch. 
 
 In this case, splitting on feature "Temperature" at the median, we find that s<sub>a<sub>Q2</sub></sub> = 1 + .6 = 1.6. It seems that an ideal split would result in two pure splits, leaving us with s = 1 + 1 = 2. On the contrary, a non-informative split would do no better than chance. In binary classification, this should result in 50% success along each branch. So, we have 1 < s < 2. 
 
@@ -154,7 +154,7 @@ Now, we find that s = 1 + 1 = 2. Since we have reached the maximum 2, we can sto
 
 In addition to judging our split attribute on its ability to successfully classify, we can generate another metric to judge various split attributes.  
 
-A good attribute splits data evenly. In example 1 below, the attributes acheive an s score of 1 + .89 = 1.89. However, it doesn't split the data very evenly.
+A good attribute splits data evenly. In example 1 below, the attribute acheives an s score of 1 + .89 = 1.89. However, it doesn't split the data very evenly.
 
 ** Example 1: **
 <a>
