@@ -33,7 +33,9 @@ So, let's begin...
 {: id="algorithms"}
 # How do vanilla tree algorithms even work?
 
-My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information-rich split (more on this later). For example, if I were trying to classify "Beverage" using "Temperature" and "Cloud cover" as classifiers (as shown in the following table)
+(Let's assume, for now, that our trees will only have two branches emanating from each node. Also, assume we are predicting a binary random variable.)
+
+My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information-rich split (more on this later). For example, if I were trying to classify "Beverage" using "Temperature" and "Cloud cover" as classifiers (as shown in the following table),
 <br>
 <br>
 
@@ -43,12 +45,12 @@ My understanding is that vanilla decision trees work by looking at data (which c
 <br>
 <br>
 
-What would be the optimal first split for the tree?
+what would be the optimal first split for the tree?
 <br>
 <br>
 
 <a>
-	<img src="/images/keep-calm-and-think-about-it-17.png" alt="Drawing" style="width: 600px; height: 700px"/>
+	<img src="/images/keep-calm-and-think-about-it-17.png" alt="Drawing" style="width: 550; height: 550"/>
 </a>
 <br>
 <br>
@@ -101,16 +103,27 @@ Let's try to slow down a bit and be more rigorous in our discussion here. \#math
 
 Assume that there are p features, and we need to determine:
 
-- Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)?
+- Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)? (I'll refer to this as the attribute (a) that we split on. That is, referring to an attribute a describes both the feature and the split point of that feature.)
 
-(In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move.)
+(In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move.
 
 So we need to look at each feature and then describe, numerically, how well this split does in terms of helping us acheive our end goal of classification.
 
 ### For numeric variables:
 
-It seems that it'd be wise to sort the data on the numeric variable. Using our example, this would be temperature. Looking at the [table](#table) above, we'd split somewhere like 55 (the median of the temperature set). If we did this, we'd find that 100% of beverages below 55 are coffee, and 60% (3/5) of beverages above 55 degrees are coffee. Ideally, in a pure split, we'd have both nodes of the split at 100% (this would mean there is no ambiguity in the classification).
+It seems that it'd be wise to sort the data on the numeric variable. Using our example, this would be temperature. Looking at the [table](#table) above, we'd split somewhere like 55 (the median of the temperature set). If we did this, we'd find that 100% of beverages below 55 are coffee, and 60% (3/5) of beverages above 55 degrees are coffee. 
 
+<a>
+	<img src="/images/class.png" alt="Split" style="width: 550; height: 550"/>
+</a>
+
+Ideally, in a pure split, we'd have both nodes of the split at 100% (this would mean there is no ambiguity in the classification). 
+
+One idea for a helpful numerical descriptor could be s, where s = b1 + b2, where b1 is the fraction of output 1 in the first category (call this g<sub>1</sub>) at split a, and b2 is the fraction of output 1 in the second category (call this g<sub>2</sub>).
+
+In this case, splitting on feature "Temperature" at the median, we find that s<sub>a1</sub> = 1 + .6 = 1.6. It seems that an ideal split would result in two pure splits, leaving us with s = 1 + 1 = 2. On the contrary, a non-informative split would do no better than chance. In binary classification, this should result in 50% success along each branch. So, we have 1 < s < 2.    
+
+### For categorical variables
 
 
 ## The way this actually works...
