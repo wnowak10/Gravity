@@ -196,5 +196,5 @@ The situation is a bit simpler for numerical dependent variables. Unfortunately,
 	<img src="/images/decision_trees/esl.png" alt="ESL" style="width: 350; height: 250"/>
 </a>
 
-
+I'll take a stab at explaining this in Part 2, when I walk/talk through the current state of the field, for both categorical and numerical dependent variables. 
 

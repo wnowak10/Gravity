@@ -15,9 +15,22 @@ This is the second part of a series where I intend to explain how decision trees
 * Part 5: What bagging is
 
 
-Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. 
+Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. Fortunately, lots of smart people have been working on this stuff for some time, now. So instead of figuring this out on my own, I can just take the internet and read about how this actually works. What is the current state of the field? I'll explain in this section. 
 
-Fortunately, lots of smart people have been working on this stuff for some time, now. So instead of figuring this out on my own, I can just take the internet and read about how this actually works. What is the current state of the field? I'll explain in this section. 
+I'll start by looking at how we deal with numeric dependent variables, since this is where we left off in the last post. I'll move on to how the experts handle categorical dependent variables in section 2. 
+
+# Section 1: Numeric dependent variables
+
+As seen in Part 1 of this series, Hastie and Tibshirani explain how this is solved in their book, *Elements of Statistical Learning*. 
+
+<a>
+	<img src="/images/decision_trees/esl.png" alt="ESL" style="width: 350; height: 250"/>
+</a>
+
+So, let's be clear on both what this means, and how it is implemented. 
+
+
+
 
 There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular:
 
