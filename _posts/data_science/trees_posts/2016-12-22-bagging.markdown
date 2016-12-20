@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, more broadly)...Part I"
-date:   2016-12-18 19:45:31 +0530
+title:  "How to: Bag"
+date:   2016-12-22 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 ---
