@@ -14,13 +14,6 @@ This is the second part of a series where I intend to explain how decision trees
 * Part 4: How gradient boosting applies
 * Part 5: What bagging is
 
-[- Part II -- The experts explanation of tree splitting (or, how this actually works)](#part2)
-
-
-
-
-{: id="part2"}
-# Part II: The way this all actually works...
 
 Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. 
 

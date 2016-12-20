@@ -6,33 +6,26 @@ categories: data_science
 author: "wnowak10"
 ---
 
-This is the first part of a series where I intend to explain how decision trees work. In this, I will cover part 1 (How do vanilla tree algorithms even work?). Parts 2-4 will be in subsequent posts.
+This is the first part of a series where I intend to explain how decision trees work. In this, I will cover part 1. Parts 2-5 will be in subsequent posts.
 
-* Part 1: How do vanilla tree algorithms even work?
-* Part 2: Why random forests are useful and what ensembles are
-* Part 3: How gradient boosting applies
-* Part 4: What bagging is
+* Part 1: A beginner's take on decision trees and splitting strategies. 
+* Part 2: How do vanilla tree algorithms even work?
+* Part 3: Why random forests are useful and what ensembles are
+* Part 4: How gradient boosting applies
+* Part 5: What bagging is
 
 If you need a primer on what a decision tree is, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
 
-Also, be aware that for each new idea, I'll try to first explain it in my own words, using my own generated ideas. This might mean that I use notation that differs from best practice. But, I find that it can often help me to think through problems on my own first, before delving into the literature and reading about best practices. Of course, though, I will do this too. Part I of this post entails my walking though and example and thinking through a basic tree. [Part II](#part2) of this post entails my explaining the current literature on decision tree splitting algorithms. 
-
-## Table of contents
-- ### [- Part I -- My explanation of tree splitting](#part1)
-- #### [Ia Categorical dependent variables](#catdeps)
-- #### [Ib Numerical dependent variables](#numdeps)
-- ### [- Part II -- The experts explanation of tree splitting (or, how this actually works)](#part2)
+Also, be aware that, in this section, I'll try to first explain it in my own words, using my own generated ideas. This might mean that I use notation that differs from best practice. But, I find that it can often help me to think through problems on my own first, before delving into the literature and reading about best practices. Of course, though, I will do this too. You can find that in Part 2.
 
 
-Let's begin... 
-<br>
-<br>
----
 
+Table of contents:
+- # [1.1 Categorical dependent variables](#catdeps)
+	- # [1.1.1 Numeric features](#numfeatures)
+	- # [1.1.2 Categorical features](#catfeatures)
+- # [1.2 Numerical dependent variables](#numdeps)
 
-{: id="part1"}
-# Part I: Decision splitting, in my own words and thoughts.
-<br>
 
 I will first talk about categorical dependent variables in section 1.1. I'll talk about using decision trees for numerical dependent variables in section 1.2. 
 
@@ -109,9 +102,10 @@ Assume that there are p features. There n observations in our training set that 
 
 We are trying to classify a label, which can take values 1 or 0. (In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move. So we need to look at each feature and then describe, numerically, how well this split does in terms of helping us acheive our end goal of classification.
 
-#### For numeric features:
+{: id="numfeatures"}
+# For numeric features:
 
-##### Classification of split:
+## Classification of split:
 
 It seems that it'd be wise to sort the data on the numeric variable. Using our example, this would be temperature. Looking at the [table](#table) above, we'd split somewhere like 55 (the median of the temperature set). If we did this, we'd find that 100% of beverages below 55 are coffee, and 60% (3/5) of beverages above 55 degrees are coffee. 
 
@@ -148,7 +142,7 @@ Let's continue with the coffee and tea example. Following rule r, we'd choose a 
 
 Now, we find that s = 1 + 1 = 2. Since we have reached the maximum 2, we can stop our search. 
 
-##### Split choice:
+## Split choice:
 
 In addition to judging our split attribute on its ability to successfully classify, we can generate another metric to judge various split attributes.  
 
@@ -176,14 +170,16 @@ A higher e is desirable for a splitting attribute.
 
 A splitting algorithm should hope to maximize both s and e, with us weighting each contribution accordingly. For example, we could look at s<sup>m</sup>*e<sup>n</sup> where m+n = 1. Choosing m>n would further prioritize the purity of our splits, while choosing n>m would prioritize the "size" of the split.
 
-#### For categorical features
+
+{: id="catfeatures"}
+# For categorical features
 
 Categorical variables are far simpler. If a categorical variable has only two outcomes (e.g. cloudy or sunny as given above), there is only one attribute to split on. We can do so and calculate s and e. If the categorical variable has n>2 outcomes, we can simply do a binary split for each outcome. So, for a categorical variable with n outcomes, we'll create n attributes and judge each split.
 
 As an example: if instead of just cloudy and sunny, we also had snowy as a weather outcome, we'd perform 3 splits (cloudy v. not cloudy; sunny v. not sunny; snowy v. not snowy) and judge each.
 
 
-{: id="numerical"}
-## 1.2 Numerical dependent variables
+{: id="numdeps"}
+# 1.2 Numerical dependent variables
 
 The situation is a bit simpler for numerical dependent variables. See ESL text.
