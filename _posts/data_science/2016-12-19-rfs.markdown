@@ -11,12 +11,12 @@ If you look at [Kaggle](kaggle.com) competitions, you can quick glean that XGBoo
 I am familiar with the idea of a decision tree, which is powerful in its simplicity. But the added complexity of something like XGBoost is a bit beyond me. In particular, I don't fully understand:
 
 
-* [How do vanilla tree algorithms even work](#algorithms)
-	* [For categorical dependent variables](#categorical) 
-	* [For numerical dependent variables](#numerical)
-* Why random forests are useful and what ensembles are
-* How gradient boosting applies
-* What bagging is
+* [1. How do vanilla tree algorithms even work](#algorithms)
+	* [1.1 For categorical dependent variables](#categorical) 
+	* [1.2 For numerical dependent variables](#numerical)
+* 2. Why random forests are useful and what ensembles are
+* 3. How gradient boosting applies
+* 4. What bagging is
 
 Mysteries abound! So, here's the plan. 
 
@@ -34,11 +34,11 @@ So, let's begin...
 
 
 {: id="algorithms"}
-# How do vanilla tree algorithms even work?
+# 1. How do vanilla tree algorithms even work?
 <br>
 
 {: id="categorical"}
-## Categorical dependent variables
+## 1.1 Categorical dependent variables
 <br>
 
 Let's first investigate how these things work for predicting categorical dependent variables We'll assume that this dep. var. is a binary random variable. And we'll also assume that our trees will only have two branches emanating from each node.
@@ -100,7 +100,6 @@ It still remains to be seen: how does the computer actually do this? In particul
 
 <br>
 <br>
-
 ---
 <br>
 <br>
@@ -206,7 +205,7 @@ There are a lot of different methods for splitting that I read about. [Vidhya an
 
 
 {: id="numerical"}
-## Numerical dependent variables
+## 1.2 Numerical dependent variables
 
 The situation is a bit simpler for dependent variables. 
 
