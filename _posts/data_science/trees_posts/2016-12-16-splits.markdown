@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A beginner's guide to decision tree algorithms"
-date:   2016-12-18 19:45:31 +0530
+date:   2016-12-16 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 ---
