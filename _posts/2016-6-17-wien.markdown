@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Wien"
+date:   2016-6-17 19:45:31 +0530
+categories: photos
+author: "wnowak10"
+image: /images/photos/wien.jpg
+---
+
+
+
+<a>
+	<img src="/images/photos/wien.jpg" alt="Cop" style="width: 960; height: 720"/>
+</a>

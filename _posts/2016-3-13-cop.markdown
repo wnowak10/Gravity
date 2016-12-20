@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Copenhagen"
+title:  "Kobenhaven"
 date:   2016-3-13 19:45:31 +0530
 categories: photos
 author: "wnowak10"
