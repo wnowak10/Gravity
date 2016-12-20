@@ -39,12 +39,16 @@ I will first talk about categorical dependent variables in section 1.1. I'll tal
 
 We'll assume that this dependent variable is a binary random variable. And we'll also assume that our trees will only have two branches emanating from each node.
 
+<a>
+	<img src="/images/decision_trees/stumps.png" alt="Stumps" style="width: 150px; height: 150px"/>
+</a>
+
 My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information-rich split (more on this later). For example, if I were trying to classify "Beverage" using "Temperature" and "Cloud cover" as classifiers (as shown in the following table),
 <br>
 <br>
 
 <a>
-	<img src="/images/coffeetable.png" alt="Drawing" style="width: 357px; height: 365px"/>
+	<img src="/images/decision_trees/coffeetable.png" alt="Drawing" style="width: 357px; height: 365px"/>
 </a>
 <br>
 <br>
@@ -54,7 +58,7 @@ what would be the optimal first split for the tree?
 <br>
 
 <a>
-	<img src="/images/keep-calm-and-think-about-it-17.png" alt="Drawing" style="width: 550; height: 550"/>
+	<img src="/images/decision_trees/keep-calm-and-think-about-it-17.png" alt="Drawing" style="width: 550; height: 550"/>
 </a>
 <br>
 <br>
@@ -67,7 +71,7 @@ We can see that splitting on the temp is the best call, as if temps are below 80
 
 {: id="table"}
 <a>
-	<img src="/images/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/decision_trees/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
 <br>
@@ -78,7 +82,7 @@ This basic split shows the "tree" idea:
 <br>
 
 <a>
-	<img src="/images/basic_tree.png" alt="Drawing" style="width: 550; height: 550"/>
+	<img src="/images/decision_trees/basic_tree.png" alt="Drawing" style="width: 550; height: 550"/>
 </a>
 
 <br>
@@ -114,7 +118,7 @@ We are trying to classify a label, which can take values 1 or 0. (In the example
 It seems that it'd be wise to sort the data on the numeric variable. Using our example, this would be temperature. Looking at the [table](#table) above, we'd split somewhere like 55 (the median of the temperature set). If we did this, we'd find that 100% of beverages below 55 are coffee, and 60% (3/5) of beverages above 55 degrees are coffee. 
 
 <a>
-	<img src="/images/class.png" alt="Split" style="width: 550; height: 550"/>
+	<img src="/images/decision_trees/class.png" alt="Split" style="width: 550; height: 550"/>
 </a>
 
 Ideally, in a pure split, we'd have both nodes of the split at 100% (this would mean there is no ambiguity in the classification). 
@@ -141,7 +145,7 @@ Pseudo-code for the optimal classification for a numeric feature would look some
 Let's continue with the coffee and tea example. Following rule r, we'd choose a new attribute which is the median of upper half (since b1>b2). In this case, the median is 75. If we bin everything up to and including 75, we get the following.
 
 <a>
-	<img src="/images/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/decision_trees/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
 Now, we find that s = 1 + 1 = 2. Since we have reached the maximum 2, we can stop our search. 
@@ -155,7 +159,7 @@ A good attribute splits data evenly. In example 1 below, the attribute acheives 
 \- Example 1: 
 
 <a>
-	<img src="/images/loweven.png" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/decision_trees/loweven.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
 In example 2, we have a worse split, in that s = .8 + .6 = 1.4. 
@@ -163,7 +167,7 @@ In example 2, we have a worse split, in that s = .8 + .6 = 1.4.
 \- Example 2:
 
 <a>
-	<img src="/images/higheven.png" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/decision_trees/higheven.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
 However, we are "doing more work" here. Given that we are trying to productively classify all data points, an attribute that produces a more even split should be prized for its efficiency, in some sense. We will have to rely on fewer nodes of a decision tree if each node can more evenly split the data.
