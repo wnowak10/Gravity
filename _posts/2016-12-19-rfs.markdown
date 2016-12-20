@@ -204,6 +204,10 @@ David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://
 <br>
 
 
+<a>
+	<img src="/images/peewee.gif" alt="Drawing" style="width: 350; height: 350"/>
+</a>
+
 Other useful resources:
 
 - [XGBoost docs](http://xgboost.readthedocs.io/en/latest/model.html)
