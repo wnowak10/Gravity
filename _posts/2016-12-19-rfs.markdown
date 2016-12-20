@@ -103,7 +103,7 @@ Let's try to slow down a bit and be more rigorous in our discussion here. \#math
 
 Assume that there are p features. There n observations in our training set that we must classify. We need to determine:
 
-- Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)? (I'll refer to this as the attribute (a) that we split on. That is, referring to an attribute a describes both the feature and the split point of that feature.)
+\- Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)? (I'll refer to this as the attribute (a) that we split on. That is, referring to an attribute a describes both the feature and the split point of that feature.)
 
 We are trying to classify a label, which can take values 1 or 0. 
 
