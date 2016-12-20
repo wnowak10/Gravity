@@ -189,7 +189,7 @@ As an example: if instead of just cloudy and sunny, we also had snowy as a weath
 {: id="numdeps"}
 # 1.2 Numerical dependent variables
 
-The situation is a bit simpler for numerical dependent variables. Unfortunately, I cheated a bit here, and looked some at Hastie's [ESL](http://statweb.stanford.edu/~tibs/ElemStatLearn/). On page 307, the show that the problem is optimizable (is that a word?). We just need to find variable j and split point s that leads to a minimum squared error term. 
+The situation is a bit simpler for numerical dependent variables. Unfortunately, I cheated a bit here, and looked some at Hastie's [ESL](http://statweb.stanford.edu/~tibs/ElemStatLearn/). On page 307, they show that the problem is optimizable (is that a [word](https://www.google.com/search?q=optimizable&oq=optimiza&aqs=chrome.0.69i59j69i65l2j69i57j0l2.1282j0j1&sourceid=chrome&ie=UTF-8?). We just need to find variable j and split point s that leads to a minimum squared error term. 
 
 
 <a>
