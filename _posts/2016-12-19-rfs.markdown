@@ -172,7 +172,7 @@ In example 2, we have a worse split, in that s = .8 + .6 = 1.4.
 
 However, we are "doing more work" here. Given that we are trying to productively classify all data points, an attribute that produces a more even split should be prized for its efficiency, in some sense. We will have to rely on fewer nodes of a decision tree if each node can more evenly split the data.
 
-We can introduce a new metric. We will call this metric e. e = log(c1) + log(c2). For example 1, we find e<sub>1</sub> = log(1)+log(9) = .954. In example 2, e<sub>2</sub> = log(5)+log(5) = 1.379. 
+We can now introduce another metric. We will call this metric e. e = log(c1) + log(c2). For example 1, we find e<sub>1</sub> = log(1)+log(9) = .954. In example 2, e<sub>2</sub> = log(5)+log(5) = 1.379. 
 
 ### For categorical variables
 
