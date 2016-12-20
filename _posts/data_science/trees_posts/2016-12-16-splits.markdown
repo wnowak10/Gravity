@@ -21,10 +21,10 @@ Also, be aware that, in this section, I'll try to first explain it in my own wor
 
 
 Table of contents:
-* 1.1 [Categorical dependent variables](#catdeps)
-* 1.1.1 [Numeric features](#numfeatures)
-* 1.1.2 [Categorical features](#catfeatures)
-* 1.2 [Numerical dependent variables](#numdeps)
+* Section 1.1 [Categorical dependent variables](#catdeps)
+* Section 1.1.1 [Numeric features](#numfeatures)
+* Section 1.1.2 [Categorical features](#catfeatures)
+* Section 1.2 [Numerical dependent variables](#numdeps)
 
 
 I will first talk about categorical dependent variables in section 1.1. I'll talk about using decision trees for numerical dependent variables in section 1.2. 
