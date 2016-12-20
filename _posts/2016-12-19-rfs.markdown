@@ -129,22 +129,34 @@ In this case, splitting on feature "Temperature" at the median, we find that s<s
 
 Pseudo-code for the optimal classification for a numeric feature would look something like:
 
+0. Set m = 0.
 1. Sort data by numeric feature
 2. Set attribute = median (Q2).
-3. Calculate s for this split. 
+3. Calculate s for this split. If s > m: m = s. If s < m, stop.
 4. If s does not equal 2, test a new attribute according to rule r. 
+5. Repeat 3 and 4. 
 
 
 **RULE R**
 <pre><code>
-*If b1 > b2, move test new attribute = median of . If b1 < b2, move to new attribute Q3. 
+*If b1 > b2, move test new attribute = median of upper half of data. If b1 < b2, move to new attribute = median of lower half of data. 
 </code></pre>
 
+Let's continue with the coffee and tea example. Following rule r, we'd choose a new attribute which is the median of upper half (since b1>b2). In this case, the median is 75. If we bin everything up to and including 75, we get the following.
 
+<a>
+	<img src="/images/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
+</a>
+
+Now, we find that s = 1 + 1 = 2. Since we have reached the maximum 2, we can stop our search. 
 
 #### Split choice:
 
 In addition to judging our split attribute on its ability to successfully classify, we can generate another metric to judge various split attribues.  
+
+A good attribute splits a lot of data. In example below, both attributes acheive an s score of 1.6. However, the attribute in example 1 is, in some sense, a worse attribute than that in example 2, as it bins less of the total data. It does less work, or is less productive, if you will. So we could say that another metric of interest is avg, where avg = average # elements in branch 1 and branch 2.
+
+In the example above, avg1 was 1+5 / 2 = 3.
 
 ### For categorical variables
 
