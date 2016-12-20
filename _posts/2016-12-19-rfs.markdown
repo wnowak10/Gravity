@@ -174,12 +174,19 @@ However, we are "doing more work" here. Given that we are trying to productively
 
 We can now introduce another metric. We will call this metric e. e = log(c1) + log(c2). For example 1, we find e<sub>1</sub> = log(1)+log(9) = .954. In example 2, e<sub>2</sub> = log(5)+log(5) = 1.379. 
 
+A higher e is desirable for a splitting attribute.
+
 ### For categorical variables
 
+Categorical variables are far simpler. If a categorical variable has only two outcomes (e.g. cloudy or sunny as given above), there is only one attribute to split on. We can do so and calculate s and e. If the categorical variable has n>2 outcomes, we can simply do a binary split for each outcome. So, for a categorical variable with n outcomes, we'll create n attributes and judge each split.
+
+As an example: if instead of just cloudy and sunny, we also had snowy as a weather outcome, we'd perform 3 splits (cloudy v. not cloudy; sunny v. not sunny; snowy v. not snowy) and judge each.
 
 ## The way this actually works...
 
+Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. 
 
+Fortunately, lots of smart people have been working on this stuff for some time, now. So instead of figuring this out on my own, I can just take the internet and read about how this actually works. What is the current state of the field? I'll explain in this section. 
 
 Some further references that touch on these ideas:
 
