@@ -105,11 +105,15 @@ Assume that there are p features, and we need to determine:
 
 - Which of the p features is best to split on? Where do we split this feature (if it is numeric or categorical with more than 2 outcomes)? (I'll refer to this as the attribute (a) that we split on. That is, referring to an attribute a describes both the feature and the split point of that feature.)
 
+We are trying to classify a label, which can take values 1 or 0. 
+
 (In the example above, we had p = 2 features, and we could easily see that splitting on the temperature feature at some point between 75 and 85 was the right move.
 
 So we need to look at each feature and then describe, numerically, how well this split does in terms of helping us acheive our end goal of classification.
 
 ### For numeric variables:
+
+#### Classification of split:
 
 It seems that it'd be wise to sort the data on the numeric variable. Using our example, this would be temperature. Looking at the [table](#table) above, we'd split somewhere like 55 (the median of the temperature set). If we did this, we'd find that 100% of beverages below 55 are coffee, and 60% (3/5) of beverages above 55 degrees are coffee. 
 
@@ -119,9 +123,28 @@ It seems that it'd be wise to sort the data on the numeric variable. Using our e
 
 Ideally, in a pure split, we'd have both nodes of the split at 100% (this would mean there is no ambiguity in the classification). 
 
-One idea for a helpful numerical descriptor could be s, where s = b1 + b2, where b1 is the fraction of output 1 in the first category (call this g<sub>1</sub>) at split a, and b2 is the fraction of output 1 in the second category (call this g<sub>2</sub>).
+One idea for a helpful numerical descriptor could be s, where s = b1 + b2, where b1 = max(x, 1-x) with x = sum(elements in branch 1) / (number of elements in branch 1). b2 is defined similarly for the second branch. 
 
-In this case, splitting on feature "Temperature" at the median, we find that s<sub>a1</sub> = 1 + .6 = 1.6. It seems that an ideal split would result in two pure splits, leaving us with s = 1 + 1 = 2. On the contrary, a non-informative split would do no better than chance. In binary classification, this should result in 50% success along each branch. So, we have 1 < s < 2.    
+In this case, splitting on feature "Temperature" at the median, we find that s<sub>a<sub>Q2</sub></sub> = 1 + .6 = 1.6. It seems that an ideal split would result in two pure splits, leaving us with s = 1 + 1 = 2. On the contrary, a non-informative split would do no better than chance. In binary classification, this should result in 50% success along each branch. So, we have 1 < s < 2. 
+
+Pseudo-code for the optimal classification for a numeric feature would look something like:
+
+1. Sort data by numeric feature
+2. Set attribute = median (Q2).
+3. Calculate s for this split. 
+4. If s does not equal 2, test a new attribute according to rule r. 
+
+
+**RULE R**
+<pre><code>
+*If b1 > b2, move test new attribute = median of . If b1 < b2, move to new attribute Q3. 
+</code></pre>
+
+
+
+#### Split choice:
+
+In addition to judging our split attribute on its ability to successfully classify, we can generate another metric to judge various split attribues.  
 
 ### For categorical variables
 
