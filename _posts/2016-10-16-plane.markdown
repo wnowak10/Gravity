@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "#aviation"
+date:   2016-10-16 19:45:31 +0530
+categories: photos
+author: "wnowak10"
+image: /images/photos/plane.jpg
+---
+
+
+
+<a>
+	<img src="/images/photos/plane.jpg" alt="Drawing" style="width: 960; height: 720"/>
+</a>
