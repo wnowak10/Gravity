@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Salzbourg"
+date:   2016-6-10 19:45:31 +0530
+categories: photos
+author: "wnowak10"
+image: /images/photos/salz.jpg
+---
+
+
+
+<a>
+	<img src="/images/photos/salz.jpg" alt="Drawing" style="width: 960; height: 720"/>
+</a>

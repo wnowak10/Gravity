@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Copenhagen"
+date:   2016-3-13 19:45:31 +0530
+categories: photos
+author: "wnowak10"
+image: /images/photos/cop.jpg
+---
+
+
+
+<a>
+	<img src="/images/photos/cop.jpg" alt="Cop" style="width: 960; height: 720"/>
+</a>
