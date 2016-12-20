@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Happy Moo-nday"
+date:   2016-12-4 19:45:31 +0530
+categories: photos
+author: "wnowak10"
+image: /images/photos/cow.jpg
+---
+
+
+
+<a>
+	<img src="/images/photos/cow.jpg" alt="Drawing" style="width: 960; height: 720"/>
+</a>
