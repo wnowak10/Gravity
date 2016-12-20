@@ -8,20 +8,20 @@ author: "wnowak10"
 
 This is the first part of a series where I intend to explain how decision trees work. In this, I will cover part 1 (How do vanilla tree algorithms even work?). Parts 2-4 will be in subsequent posts.
 
-* 1. How do vanilla tree algorithms even work?
-* 2. Why random forests are useful and what ensembles are
-* 3. How gradient boosting applies
-* 4. What bagging is
+* Part 1: How do vanilla tree algorithms even work?
+* Part 2: Why random forests are useful and what ensembles are
+* Part 3: How gradient boosting applies
+* Part 4: What bagging is
 
 If you need a primer on what a decision tree is, there is a lot of good extant content on this. Check out this simple [video](https://www.youtube.com/watch?v=eKD5gxPPeY0) for an explanation of the basic idea. 
 
 Also, be aware that for each new idea, I'll try to first explain it in my own words, using my own generated ideas. This might mean that I use notation that differs from best practice. But, I find that it can often help me to think through problems on my own first, before delving into the literature and reading about best practices. Of course, though, I will do this too. Part I of this post entails my walking though and example and thinking through a basic tree. [Part II](#part2) of this post entails my explaining the current literature on decision tree splitting algorithms. 
 
 ## Table of contents
-### [- Part I -- My explanation of tree splitting](#part1)
-#### [Ia Categorical dependent variables](#catdeps)
-#### [Ib Numerical dependent variables](#numdeps)
-### [- Part II -- The experts explanation of tree splitting (or, how this actually works)](#part2)
+- ### [- Part I -- My explanation of tree splitting](#part1)
+- #### [Ia Categorical dependent variables](#catdeps)
+- #### [Ib Numerical dependent variables](#numdeps)
+- ### [- Part II -- The experts explanation of tree splitting (or, how this actually works)](#part2)
 
 
 Let's begin... 
