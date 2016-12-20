@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, more broadly)"
+title:  "How to: Use (and understand) XGBoost (and Random Forest Classifiers, more broadly)...Part I"
 date:   2016-12-18 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
@@ -210,7 +210,25 @@ There are a lot of different methods for splitting that I read about. [Vidhya an
 
 The situation is a bit simpler for dependent variables. 
 
+
+
+
+
+
+
+
+
+
+
+This post is getting long. If you made it through this, move ahead to part 2 where I talk about forests and ensembles. 
+
+
+
 - greediness?
+
+
+
+
 
 Some further references that touch on these ideas:
 
