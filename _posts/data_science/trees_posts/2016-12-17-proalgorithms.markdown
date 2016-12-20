@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to: Understand decision tree splitting"
+title:  "How to: Split"
 date:   2016-12-18 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
