@@ -28,8 +28,8 @@ Let's begin...
 <br>
 <br>
 ---
-<br>
-<br>
+
+
 {: id="part1"}
 # Part I: Decision splitting, in my own words and thoughts.
 <br>
@@ -40,7 +40,7 @@ I will first talk about categorical dependent variables in section 1.1. I'll tal
 ## 1.1 Categorical dependent variables
 <br>
 
-Let's first investigate how these things work for predicting categorical dependent variables. We'll assume that this dependent variable is a binary random variable. And we'll also assume that our trees will only have two branches emanating from each node.
+We'll assume that this dependent variable is a binary random variable. And we'll also assume that our trees will only have two branches emanating from each node.
 
 My understanding is that vanilla decision trees work by looking at data (which can be categorical or quantitive in nature), and finding the most information-rich split (more on this later). For example, if I were trying to classify "Beverage" using "Temperature" and "Cloud cover" as classifiers (as shown in the following table),
 <br>
@@ -187,79 +187,3 @@ As an example: if instead of just cloudy and sunny, we also had snowy as a weath
 ## 1.2 Numerical dependent variables
 
 The situation is a bit simpler for numerical dependent variables. See ESL text.
-
-
-{: id="part2"}
-# Part II: The way this all actually works...
-
-Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. 
-
-Fortunately, lots of smart people have been working on this stuff for some time, now. So instead of figuring this out on my own, I can just take the internet and read about how this actually works. What is the current state of the field? I'll explain in this section. 
-
-There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular:
-
-- Gini index
-- Chi square
-- Information gain
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-- greediness?
-
-
-
-
-
-Some further references that touch on these ideas:
-
-Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
-
-David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf) gives a good explanation of information and entropy, so you can look 
-
-
-
-<br>
-<br>
-
----
-<br>
-<br>
-
-
-<a>
-	<img src="/images/peewee.gif" alt="Drawing" style="width: 350; height: 350"/>
-</a>
-
-Other useful resources:
-
-- [XGBoost docs](http://xgboost.readthedocs.io/en/latest/model.html)
-- [Vidhya](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
-- [Quora](https://www.quora.com/topic/Random-Forests-Algorithm)
