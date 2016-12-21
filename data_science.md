@@ -2,6 +2,6 @@
 layout: archive
 title: Data Science
 permalink: /data_science/
-tagline: "Humanity is overrated."
+tagline: ""
 category: "data_science"
 ---

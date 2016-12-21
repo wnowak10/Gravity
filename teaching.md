@@ -2,6 +2,6 @@
 layout: archive
 title: Teaching
 permalink: /teaching/
-tagline: "..."
+tagline: ""
 category: teaching
 ---
