@@ -29,6 +29,13 @@ As seen in Part 1 of this series, Hastie and Tibshirani explain how this is solv
 
 So, let's be clear on both what this means, and how it is implemented. 
 
+As always, an example would probably help. Let's try to predict earnings from education and gender. Our data looks like this: 
+
+<a>
+	<img src="/images/decision_trees/earn.png" alt="EARN" style="width: 350; height: 250"/>
+</a>
+
+In this case, we generate a cost function, with split variable (j) and split point (s) as parameters to be optimized. 
 
 
 
