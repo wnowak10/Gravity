@@ -47,6 +47,15 @@ Now, we can use excel to find the sum of squared residuals for this proposed spl
 	<img src="/images/decision_trees/ssr.png" alt="AVG" style="width: 350; height: 250"/>
 </a>
 
+This doesn't seem too computationally cheap to me. That's a lot of steps to find the sum of squares for variable "education" and split point 15. As I understand it, this is how we do things. Part of the success of XGBoost was that they altered this approach. The authors of the XGBoost package refer to this as their "Approximate Algorithm" on [page 3](https://arxiv.org/pdf/1603.02754.pdf).
+
+
+
+
+
+
+
+
 There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular:
 
 - Gini index
