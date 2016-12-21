@@ -27,17 +27,25 @@ As seen in Part 1 of this series, Hastie and Tibshirani explain how this is solv
 	<img src="/images/decision_trees/esl.png" alt="ESL" style="width: 350; height: 250"/>
 </a>
 
-So, let's be clear on both what this means, and how it is implemented. 
+They go on to write: "For each splitting variable, the determination of the split point s can be done very quickly and hence by scanning through all of the inputs, determination of the best pair (j, s) is feasible."
 
-As always, an example would probably help. Let's try to predict earnings from education and gender. Our data looks like this: 
+So, let's be clear on both what this means, and how it is implemented. As always, an example would probably help. Let's try to predict earnings from education and gender. Our data looks like this: 
 
 <a>
 	<img src="/images/decision_trees/earn.png" alt="EARN" style="width: 350; height: 250"/>
 </a>
 
-In this case, we generate a cost function, with split variable (j) and split point (s) as parameters to be optimized. 
+In this case, we generate a cost function, with split variable (j) and split point (s) as parameters to be optimized. Presumably, the rule I proposed in Part 1 is relevant here. If we have a numerical feature, like years of education, we can split it at the median. Then, we find the average earnings for each half plane. In this case, we split at a median of 15. I'll use excel to find the average for region 1 and 2. 
 
+<a>
+	<img src="/images/decision_trees/avg.png" alt="AVG" style="width: 350; height: 250"/>
+</a>
 
+Now, we can use excel to find the sum of squared residuals for this proposed split. It looks like the following. 
+
+<a>
+	<img src="/images/decision_trees/ssr.png" alt="AVG" style="width: 350; height: 250"/>
+</a>
 
 There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular:
 
