@@ -10,5 +10,5 @@ image: /images/shucking.jpg
 
 
 <a>
-	<img src="/images/shucking.jpg" alt="Drawing" style="width: 960; height: 720"/>
+	<img src="/images/photos/shucking.jpg" alt="Drawing" style="width: 960; height: 720"/>
 </a>
