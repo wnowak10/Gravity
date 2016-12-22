@@ -35,7 +35,7 @@ So, let's be clear on both what this means, and how it is implemented. As always
 	<img src="/images/decision_trees/earn.png" alt="EARN" style="width: 350; height: 250"/>
 </a>
 
-In this case, we generate a cost function, with split variable (j) and split point (s) as parameters to be optimized. Presumably, the rule I proposed in Part 1 is relevant here. If we have a numerical feature, like years of education, we can split it at the median. Then, we find the average earnings for each half plane. In this case, we split at a median of 15. I'll use excel to find the average for region 1 and 2. 
+In this case, we generate a cost function, with split variable (j) and split point (s) as parameters to be optimized. Let's split our numerical feature (years of education) at the median. Then, we'll find the average earnings for each half plane. In this case, we split at a median of 15. I'll use excel to find the average for region 1 and 2. 
 
 <a>
 	<img src="/images/decision_trees/avg.png" alt="AVG" style="width: 350; height: 250"/>
@@ -47,20 +47,20 @@ Now, we can use excel to find the sum of squared residuals for this proposed spl
 	<img src="/images/decision_trees/ssr.png" alt="AVG" style="width: 350; height: 250"/>
 </a>
 
-This doesn't seem too computationally cheap to me. That's a lot of steps to find the sum of squares for variable "education" and split point 15. As I understand it, this is how we do things. Part of the success of XGBoost was that they altered this approach. The authors of the XGBoost package refer to this as their "Approximate Algorithm" on [page 3](https://arxiv.org/pdf/1603.02754.pdf).
+This doesn't seem too computationally cheap to me. For any given split point, we need to a) find two averages, b) find the deviation for each training observation, c) square these deviations, and d) sum the squares. But, as far as I can tell, this is how things are actually done.
+
+ Part of the success of XGBoost, though, was that they altered this approach. The authors of the XGBoost package refer to this as their "Approximate Algorithm" on [page 3](https://arxiv.org/pdf/1603.02754.pdf).
+
+Ideally, I'll get around to investigating that innovation in another post. For now, let's move ahead to think about how we deal with categorical dependent variables. 
 
 
+# Section 1: Categorical dependent variables
 
+There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular, 1.) Gini index, 2.) Chi square, and 3.) Information gain are addressed. I'll talk about each here.
 
+## Gini Index
 
-
-
-
-There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular:
-
-- Gini index
-- Chi square
-- Information gain
+## Chi SQua
 
 
 
