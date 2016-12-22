@@ -59,7 +59,7 @@ There are a lot of different methods for splitting that I read about. [Vidhya an
 
 For a given variable j with split points s<sub>i</sub>...s<sub>k</sub>, the Gini Index is given by:
 
-$$\sum_{n=1}^{\infty} 2^{-n} = 1$$
+<p><span class="math display">\[\sum_{n=1}^{\infty} 2^{-n} = 1\]</span></p>
 
 - formula
 - Let's work an example and explain how gini index tells us useful information
