@@ -5,6 +5,7 @@ date:   2016-12-10 19:45:31 +0530
 categories: photos
 author: "wnowak10"
 image: /images/lib.jpg
+comments:true
 ---
 
 
