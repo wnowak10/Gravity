@@ -17,7 +17,7 @@ This is the second part of a series where I intend to explain how decision trees
 
 Before, I was just writing about how I think decision trees can and should work, given my primitive understanding. I made up terms, and it was generally a mess. Though, hopefully there was some insight to be gained by others from walking through the concepts. Fortunately, lots of smart people have been working on this stuff for some time, now. So instead of figuring this out on my own, I can just take to the internet and read about how this actually works. What is the current state of the field? I'll explain in this section. 
 
-I'll start by looking at how we deal with numeric dependent variables, since this is where we left off in the last post. I'll move on to how the experts handle categorical dependent variables in section 2. 
+I'll start by looking at how we deal with numeric dependent variables, since this is where we left off in the last post. I'll move on to how the experts handle categorical dependent variables in section 2. It should be noted that all of these are [greedy algorithms](https://en.wikipedia.org/wiki/Greedy_algorithm); that is, at any node, the tree is looking to make the best possible split, while only looking one step ahead. 
 
 # Section 1: Numeric dependent variables
 
@@ -126,4 +126,21 @@ Other authors speak of a Gini *Index*, which uses a similar, but different defin
 
 For a binary dependent variable, this measure of split quality is optimized at 1. We can see this in our Example 3. Here, we'd find (5/10)(1)+(5/10)(1) = 1.
 
-This post has been long enough. Let's talk through the other split metrics in future posts. In particular, I'll address chi Square and information gain. Until next time!
+To determine the optimal variable and split attribute, we'll simply roll through all possibilities (all outcomes of numeric and categorical features), and choose whichever has the lowest Gini impurity. 
+
+At this point, this post has been long enough. Let's talk through the other split metrics in future posts. In particular, I'll address chi Square and information gain. Until next time!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+As an aside, some helpful resources I used while writing this page:
+
+- [Verma, 2009](http://www.hypertextbookshop.com/dataminingbook/working_version/contents/chapters/chapter001/section003/blue/page002.html)
+
+- [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity)
+
