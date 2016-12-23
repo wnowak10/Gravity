@@ -162,7 +162,7 @@ As an aside, some helpful resources I used while writing this page:
     (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
         var d = document, s = d.createElement('script');
         
-        s.src = 'http://www.wnowak10.github.io.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+        s.src = 'http://wnowak10.github.io.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
         
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
