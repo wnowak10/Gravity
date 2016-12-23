@@ -22,7 +22,7 @@ This is a continuation of the second part of a series where I intend to explain 
 A populat algorithm, also known as "ID3" and developped by J. R. Quinlan, this method uses entropy calculations. At each node, we look at the entropy of the given node, and then look at the weighted, combined entropy of the new branched nodes after the split, and compare. In this algorithm, all split attributes are considered, and the greedy algorithm chooses the split with the greatest information gain. Wikipedia describes this as follows: 
 
 <a>
-	<img src="/images/decision_trees/IF.png" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/decision_trees/IG.png" alt="Drawing" style="width: 350; height: 350"/>
 </a>
 
 Let's consider an example to make this make sense. 
@@ -52,10 +52,10 @@ So we find IG = .72 - .714 = .06. This doesn't seem like a huge information gain
 
 If we instead consider splitting on the numeric variable "Temperature" at a value of 80, things go much better.
 
-After this split, we find a new entropy of...0*. So we had an information gain of .72-0 = .72. This is a much better split, and our algorithm would clearly have preferred it (judging by the IG metric). Nice!
+After this split, we find a new entropy of...0\*. So we had an information gain of .72-0 = .72. This is a much better split, and our algorithm would clearly have preferred it (judging by the IG metric). Nice!
 
 
-* To see why this entropy is 0, we can see that this split attribute leads to purity in both child nodes. That is great! When performing the entropy calculations, which take the form of p(log(p)) + q(log(2)), we can tell that both products in the sum go to 0 (recall, log(1)=0).
+\* To see why this entropy is 0, we can see that this split attribute leads to purity in both child nodes. That is great! When performing the entropy calculations, which take the form of p(log(p)) + q(log(q)), we can tell that both products in the sum go to 0 (recall, log(1)=0).
 
 <a>
 	<img src="/images/decision_trees/classified_coffee.png" alt="Drawing" style="width: 350; height: 350"/>
@@ -66,6 +66,10 @@ Nice! We are cruising. Let's look into a couple more split algorithms, and then 
 <a>
 	<img src="/images/peewee.gif" alt="Drawing" style="width: 350; height: 350"/>
 </a>
+
+Citations:
+
+[Amro](http://stackoverflow.com/questions/1859554/what-is-entropy-and-information-gain)
 
 {% if page.comments %}
 
