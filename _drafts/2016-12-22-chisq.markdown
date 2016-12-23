@@ -34,4 +34,48 @@ There are a lot of different methods for splitting that I read about. [Vidhya an
 
 
 
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+- greediness?
+
+
+
+
+
+Some further references that touch on these ideas:
+
+Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
+
+David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf) gives a good explanation of information and entropy, so you can look 
+
+
+
+<br>
+<br>
+
+---
+<br>
+<br>
+
+
+<a>
+	<img src="/images/peewee.gif" alt="Drawing" style="width: 350; height: 350"/>
+</a>
+
+Other useful resources:
+
+- [XGBoost docs](http://xgboost.readthedocs.io/en/latest/model.html)
+- [Vidhya](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
+- [Quora](https://www.quora.com/topic/Random-Forests-Algorithm)
+
+
+
+
 2016-12-18-proalgorithms.markdown

@@ -75,11 +75,15 @@ Example 1:
 The weather decision node leads to the following splits:
 
 Cloudy:
+
 - Coffee: 3/4
+
 - Tea: 1/4
 
 Sunny:
+
 - Coffee: 5/6
+
 - Tea: 1/6
 
 We find a product for each set (3/4 * 1/4 = 3/16; 5/6 * 1/6 = 5/36). Then, to find the Gini impurity for the "Cloud cover" split, we weight each product by the number of elements in each set. 
@@ -88,7 +92,7 @@ In this instance, splitting on this variable and split point leads to a Gini imp
 
 (4/10)*(3/16) + (6/10)*(5/36) ~= .16.
 
-This measure is fairly similar from the intuition I derived in Part 1. We look at the product of f<sub>i</sub> and (1-f<sub>i</sub>), whereas I simply considered the maximum of the two probabilities. Simiularly, we weight each term in the Gini impurity by the proportion of total training observations classified in this edge of the branch. This is a similar tactic to my creation of e = log(c<sub>1</sub>)+log(c<sub>2</sub>). Both attempt to favor classication methods that broadly split the data. 
+This measure is fairly similar from the intuition I derived in Part 1. We look at the product of f<sub>i</sub> and (1-f<sub>i</sub>), whereas I simply considered the maximum of the two probabilities. Similarly, we weight each term in the Gini impurity by the proportion of total training observations classified in this edge of the branch. This is a similar tactic to my creation of e = log(c<sub>1</sub>)+log(c<sub>2</sub>). Both attempt to favor classication methods that broadly split the data. 
 
 Using this definition of the Gini impurity, we can consider the best and worst case scenarios. Using the above example, a split attribute that resulted in an uneven split, with classification near uniform, would be pretty bad. Let's see how bad we can do.
 
@@ -112,13 +116,13 @@ Example 3:
 	<img src="/images/decision_trees/gender2.png" alt="Drawing" style="width: 257px; height: 300px"/>
 </a>
 
-This is an ideal scenario. Splitting on gender leads to an even split of the data, and we get no impurity in our predictions from the split. The resulting Gini Index is:
+This is an ideal scenario. Splitting on gender leads to an even split of the data, and we get no impurity in our predictions from the split. The resulting Gini impurt is:
 
 (5/10)*(0/25)+(5/10)*(0/25) = 0.
 
-Other authors speak of a Gini Index, which uses a similar, but different definition. In the Gini Index, we calculate the initial scores as 1 - (f<sub>i</sub>^2) - (1-f<sub>i</sub>)^2. So, using our first example, we'd find:
+Other authors speak of a Gini *Index*, which uses a similar, but different definition. In the Gini Index, we calculate the initial scores as 1 - (f<sub>i</sub>)<sup>2</sup> - (1-f<sub>i</sub>)<sup>2</sup>. So, using our first example, we'd find:
 
-(4/10)*(1 - (3/4)^2 - (1/4)^2) + (6/10)*(1 - (5/6)^2 - (1/6)^2). 
+(4/10)*(1 - (3/4)<sup>2</sup> - (1/4)<sup>2</sup>) + (6/10)*(1 - (5/6)<sup>2</sup> - (1/6)<sup>2</sup>). 
 
 For a binary dependent variable, this measure of split quality is optimized at 1. We can see this in our Example 3. Here, we'd find (5/10)(1)+(5/10)(1) = 1.
 
