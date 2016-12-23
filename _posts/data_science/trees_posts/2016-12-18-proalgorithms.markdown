@@ -66,6 +66,7 @@ There are a few definitions of the Gini impurity thrown about, but they all get 
 Let's go back to the example from Part 1. We are trying to classify beverage consumption, using temperature and weather as features. Let's focus on the weather feature to start, as it makes things simpler. 
 
 Example 1:
+<br>
 <a>
 	<img src="/images/decision_trees/cloud_sort.png" alt="Drawing" style="width: 257px; height: 300px"/>
 </a>
@@ -94,6 +95,7 @@ Using this definition of the Gini impurity, we can consider the best and worst c
 Imagine that we are trying to perform a binary classification. We are using gender as the only feature. In the following case, this would be a pretty bad scenario. 
 
 Example 2:
+<br>
 <a>
 	<img src="/images/decision_trees/gender.png" alt="Drawing" style="width: 257px; height: 300px"/>
 </a>
@@ -105,6 +107,7 @@ Here, we find a Gini of:
 This contrasts with a similar scenario, with data more favorable to classification. 
 
 Example 3: 
+<br>
 <a>
 	<img src="/images/decision_trees/gender2.png" alt="Drawing" style="width: 257px; height: 300px"/>
 </a>
@@ -119,4 +122,4 @@ Other authors speak of a Gini Index, which uses a similar, but different definit
 
 For a binary dependent variable, this measure of split quality is optimized at 1. We can see this in our Example 3. Here, we'd find (5/10)(1)+(5/10)(1) = 1.
 
-This post has been long enough, for now. Let's talk through the other split metrics in future posts. in particular, I'll address Chi Square and Information gain. Until next time!
+This post has been long enough. Let's talk through the other split metrics in future posts. In particular, I'll address chi Square and information gain. Until next time!

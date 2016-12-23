@@ -8,7 +8,7 @@
 # Site settings
 title: Like, literally.
 email: wnowak10@gmail.com
-description: Writings on life, data science, teaching, and more.
+description: Writings on data science, teaching, and life.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://wnowak10.github.io" # the base hostname & protocol for your site
 # twitter_username: wnowak10
