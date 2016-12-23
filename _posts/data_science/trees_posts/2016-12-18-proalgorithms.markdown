@@ -55,9 +55,9 @@ Now, we can use excel to find the sum of squared residuals for this proposed spl
 
 There are a lot of different methods for splitting that I read about. [Vidhya analytics](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/) briefly discusses them here. In particular, 1.) Gini index, 2.) Chi square, and 3.) Information gain are addressed. I'll talk about each here.
 
-## Gini Index
+## Gini Impurity 
 
-There are a few definitions of the Gini index thrown about, but they all get at the same idea. We'll start with the Wikipedia definition:
+There are a few definitions of the Gini impurity thrown about, but they all get at the same idea. We'll start with the Wikipedia definition:
 
 <a>
 	<img src="/images/decision_trees/gini.png" alt="AVG" style="width: 350; height: 250"/>
@@ -65,84 +65,58 @@ There are a few definitions of the Gini index thrown about, but they all get at 
 
 Let's go back to the example from Part 1. We are trying to classify beverage consumption, using temperature and weather as features. Let's focus on the weather feature to start, as it makes things simpler. 
 
+Example 1:
 <a>
-	<img src="/images/decision_trees/coffeetable.png" alt="Drawing" style="width: 257px; height: 300px"/>
+	<img src="/images/decision_trees/cloud_sort.png" alt="Drawing" style="width: 257px; height: 300px"/>
 </a>
 
 
+The weather decision node leads to the following splits:
 
+Cloudy:
+- Coffee: 3/4
+- Tea: 1/4
 
-Essentially, For a given variable j with split points s<sub>i</sub>...s<sub>k</sub>, the Gini Index is given by:
+Sunny:
+- Coffee: 5/6
+- Tea: 1/6
 
-$$ \LaTeX $$
+We find a product for each set (3/4 * 1/4 = 3/16; 5/6 * 1/6 = 5/36). Then, to find the Gini impurity for the "Cloud cover" split, we weight each product by the number of elements in each set. 
 
-- formula
-- Let's work an example and explain how gini index tells us useful information
+In this instance, splitting on this variable and split point leads to a Gini impurity of:
 
-http://www.hypertextbookshop.com/dataminingbook/working_version/contents/chapters/chapter001/section003/blue/page002.html
+(4/10)*(3/16) + (6/10)*(5/36) ~= .16.
 
-## Chi Square
+This measure is fairly similar from the intuition I derived in Part 1. We look at the product of f<sub>i</sub> and (1-f<sub>i</sub>), whereas I simply considered the maximum of the two probabilities. Simiularly, we weight each term in the Gini impurity by the proportion of total training observations classified in this edge of the branch. This is a similar tactic to my creation of e = log(c<sub>1</sub>)+log(c<sub>2</sub>). Both attempt to favor classication methods that broadly split the data. 
 
-## Information gain
+Using this definition of the Gini impurity, we can consider the best and worst case scenarios. Using the above example, a split attribute that resulted in an uneven split, with classification near uniform, would be pretty bad. Let's see how bad we can do.
 
+Imagine that we are trying to perform a binary classification. We are using gender as the only feature. In the following case, this would be a pretty bad scenario. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-- greediness?
-
-
-
-
-
-Some further references that touch on these ideas:
-
-Thales Sehn Körting discusses this some in this helpful [video](https://www.youtube.com/watch?v=Qdi0GBWrDO8), but I want to expound upon and clarify his ideas here. 
-
-David MacKay's [*Infomation Theory, Inference, and Learning Algorithms*](http://www.inference.phy.cam.ac.uk/itprnn/book.pdf) gives a good explanation of information and entropy, so you can look 
-
-
-
-<br>
-<br>
-
----
-<br>
-<br>
-
-
+Example 2:
 <a>
-	<img src="/images/peewee.gif" alt="Drawing" style="width: 350; height: 350"/>
+	<img src="/images/decision_trees/gender.png" alt="Drawing" style="width: 257px; height: 300px"/>
 </a>
 
-Other useful resources:
+Here, we find a Gini of:
 
-- [XGBoost docs](http://xgboost.readthedocs.io/en/latest/model.html)
-- [Vidhya](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
-- [Quora](https://www.quora.com/topic/Random-Forests-Algorithm)
+(1/10)*(0/1)+(9/10)*(20/81) ~= .22. 
+
+This contrasts with a similar scenario, with data more favorable to classification. 
+
+Example 3: 
+<a>
+	<img src="/images/decision_trees/gender2.png" alt="Drawing" style="width: 257px; height: 300px"/>
+</a>
+
+This is an ideal scenario. Splitting on gender leads to an even split of the data, and we get no impurity in our predictions from the split. The resulting Gini Index is:
+
+(5/10)*(0/25)+(5/10)*(0/25) = 0.
+
+Other authors speak of a Gini Index, which uses a similar, but different definition. In the Gini Index, we calculate the initial scores as 1 - (f<sub>i</sub>^2) - (1-f<sub>i</sub>)^2. So, using our first example, we'd find:
+
+(4/10)*(1 - (3/4)^2 - (1/4)^2) + (6/10)*(1 - (5/6)^2 - (1/6)^2). 
+
+For a binary dependent variable, this measure of split quality is optimized at 1. We can see this in our Example 3. Here, we'd find (5/10)(1)+(5/10)(1) = 1.
+
+This post has been long enough, for now. Let's talk through the other split metrics in future posts. in particular, I'll address Chi Square and Information gain. Until next time!
