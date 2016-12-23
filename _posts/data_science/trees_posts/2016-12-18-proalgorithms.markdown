@@ -9,7 +9,7 @@ author: "wnowak10"
 This is the second part of a series where I intend to explain how decision trees work. In this, I will cover part 2 (How do vanilla tree algorithms really work?). Parts 3-5 will be in subsequent posts.
 
 * Part 1: A beginner's take on decision trees and splitting strategies. 
-* Part 2: How do vanilla tree algorithms even work?
+* Part 2: How do vanilla tree algorithms actually work?
 * Part 3: Why random forests are useful and what ensembles are
 * Part 4: How gradient boosting applies
 * Part 5: What bagging is
@@ -57,7 +57,22 @@ There are a lot of different methods for splitting that I read about. [Vidhya an
 
 ## Gini Index
 
-For a given variable j with split points s<sub>i</sub>...s<sub>k</sub>, the Gini Index is given by:
+There are a few definitions of the Gini index thrown about, but they all get at the same idea. We'll start with the Wikipedia definition:
+
+<a>
+	<img src="/images/decision_trees/gini.png" alt="AVG" style="width: 350; height: 250"/>
+</a>
+
+Let's go back to the example from Part 1. We are trying to classify beverage consumption, using temperature and weather as features. Let's focus on the weather feature to start, as it makes things simpler. 
+
+<a>
+	<img src="/images/decision_trees/coffeetable.png" alt="Drawing" style="width: 257px; height: 300px"/>
+</a>
+
+
+
+
+Essentially, For a given variable j with split points s<sub>i</sub>...s<sub>k</sub>, the Gini Index is given by:
 
 $$ \LaTeX $$
 
