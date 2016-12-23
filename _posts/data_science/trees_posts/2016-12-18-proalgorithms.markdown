@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "How to: Split"
-date:   2016-12-18 19:45:31 +0530
+title:  "Decision tree splitting metrics"
+date:   2016-12-22 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 ---
