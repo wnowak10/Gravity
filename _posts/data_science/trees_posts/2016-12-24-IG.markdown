@@ -48,7 +48,7 @@ Entropy = -(5/6)(log(5/6)) - (1/6)(log(1/6)) ~= .65
 Total entropy = (4/10)*(.81) + (6/10)*(.65) ~= .714
 
 
-So we find IG = .72 - .714 = .06. This doesn't seem like a huge information gain, and that kinda accords with out intuition. We had that most days are coffee, and tea consumption is rare. Splitting on weather isn't really that informative, as we find that, given the weather (whether is is cloudy or sunny), the pattern of coffee dominance still holds.
+So we find IG = .72 - .714 = .006. Lame! This doesn't seem like a huge information gain, and that kinda accords with out intuition. We had that most days are coffee, and tea consumption is rare. Splitting on weather isn't really that informative, as we find that, given the weather (whether is is cloudy or sunny), the pattern of coffee dominance still holds.
 
 If we instead consider splitting on the numeric variable "Temperature" at a value of 80, things go much better.
 
@@ -70,6 +70,7 @@ Nice! We are cruising. Let's look into a couple more split algorithms, and then 
 Citations:
 
 [Amro](http://stackoverflow.com/questions/1859554/what-is-entropy-and-information-gain)
+[Wikipedia](https://en.wikipedia.org/wiki/ID3_algorithm)
 
 {% if page.comments %}
 
