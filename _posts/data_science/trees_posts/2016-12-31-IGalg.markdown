@@ -1,0 +1,58 @@
+---
+layout: post
+title:  "Information Gain: Coding an algorithm"
+date:   2016-12-31 19:45:31 +0530
+categories: data_science
+author: "wnowak10"
+comments: true
+---
+
+In the last post, I explained how decision tree classification methods commonly use entropy calculations to maximize information gain, as it is called. I thought it'd be a fun and useful exercise to think about how one actually codes this algorithm and implements it. As a result, I made an effort in Python.
+
+All the work can be found at [github](https://github.com/wnowak10/decision_trees), but I'll try to discuss a few key features here. The file under consideration is called "IGtree.py". First, we define the entropy function that we'll use throughout. Again, check out my last post if you want a lengthier discussion on that.
+
+```
+def entropy(p):
+	return -p*(math.log(p+eps)/math.log(2))-(1-p)*(math.log(1-p+eps)/math.log(2))
+```
+
+Not much of excitement here. Only things to note are that, I had to use the handy change of base formula (shout out to the world's Algebra II teachers) and I also had to include epsilon (eps). This is a super teeny number (2e-16). We need it so that if we find a pure node (so that we have perfect classification and p = 1 (or 0)), the logarithms still function (Again, shout out to all my past Algebra II students -- 0 is not in the domain of log functions). 
+
+From this point on, I basically do the following: I look at every variable and assess whether it is numeric or not. Either way, I then consider information gain (IG) at every possible split. If we find that a split is the best we have seen so far, we record the information gain and now set that as our new maxiumum information gain standard. We also record the dataframes from that split. For non-stump trees (that is, tress with more than one split), we'll need to keep drilling down, and we'll need these two dataframes handy to split on them. This is a recursive process, and I'll touch on it more at the end of the post. The code for judging if the split is the best yet seen is the following:
+
+```
+maxIG = 0
+	IG = h_one - h_two
+	if IG>maxIG:
+		maxIG = IG
+```
+
+I throw in some ugly print statements to help me identify what is going on. These can obviously be omitted or amended for clarity.
+
+As I mentioned before, an IG-based splitting algorithm would ideally recurse. It would split at the top and form two smaller trees, and then analyze the optimal splitting of each of those two trees. This would continue until we'd reached some predetermined tree depth or number of outcomes in the leaves. I am working on this at present (see the ["recursion"](https://github.com/wnowak10/decision_trees/tree/recursion) branch on github). There are some issues, so I've gotta sort that out. To do!
+
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
