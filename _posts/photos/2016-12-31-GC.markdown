@@ -4,7 +4,7 @@ title:  "A grand canyon"
 date:   2016-12-31 19:45:31 +0530
 categories: photos
 author: "wnowak10"
-image: /images/GC.jpg
+image: /images/photos/GC.jpg
 comments: true
 ---
 

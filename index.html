@@ -18,7 +18,7 @@ layout: default
     <a class='postLink' href="{{post.url}}">{{post.title}}</a>
     </div>
     <div class="postExt">
-   {{ post.content | strip_html | truncatewords:5}}
+   {{ post.content | strip_html | truncatewords:0}}
     </div>
   </div>
 
