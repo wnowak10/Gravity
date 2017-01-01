@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Information Gain: Coding an algorithm"
+date:   2016-12-31 19:45:31 +0530
+categories: data_science
+author: "wnowak10"
+comments: true
+---
+
+Happy New Year!
+
+For 2017, I hope to continue to fulfill my 2016 resolution: "eat strawberries." This was motivated by the following quote from Bertrand Russell:
+
+>Suppose one man likes strawberries and another does not; in what respect is the latter superior? There is no abstract and impersonal proof either that strawberries are good or that they are not good. To the man who likes them they are good, to the man who dislikes them they are not. But the man who likes them has a pleasure which the other does not have; to that extent his life is more enjoyable and he is better adapted to the world in which both must live. What is true in this trivial instance is equally true in more important matters. The man who enjoys watching football is to that extent superior to the man who does not. The man who enjoys reading is still more superior to the man who does not, since opportunities for reading are more frequent than opportunities for watching football. (Russell did not live to see ESPN.) The more things a man is interested in, the more opportunities of happiness he has and the less he is at the mercy of fate, since if he loses one thing he can fall back upon another. Life is too short to be interested in everything, but it is good to be interested in as many things as are necessary to fill our days. (Russell, The Conquest of Happiness, pp. 125-6)
+
+So that, and I'm going to try to learn to matcha lattes.
+
+<a>
+	<img src="/images/photos/matcha.jpg" alt="Latte" style="width: 620; height: 400"/>
+</a>
+
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
