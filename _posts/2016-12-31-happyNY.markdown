@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Information Gain: Coding an algorithm"
+title:  "Happy New Year"
 date:   2016-12-31 19:45:31 +0530
-categories: data_science
+categories: other
 author: "wnowak10"
 comments: true
 ---
