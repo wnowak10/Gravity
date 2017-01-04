@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "History if fascinating, but frustrating"
+title:  "History is fascinating, but frustrating"
 date:   2017-1-3 19:45:31 +0530
 categories: other
 author: "wnowak10"
