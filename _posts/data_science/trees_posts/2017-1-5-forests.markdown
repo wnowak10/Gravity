@@ -25,7 +25,7 @@ As I said, this isn't so hard to understand. What is more elusive, I think, is w
 But the claim is that forests are superior for their classification accuracy, too. This is not immediately obvious. Our examples from before had only two features, which I fear won't be too demonstrative here. So let's create some more training data and see how a random forest would work, when compared to a vanilla decision tree. 
 
 <a>
-	<img src="/images/decision_trees/sick_df.jpg" alt="DF" style="width: 220; height: 100"/>
+	<img src="/images/decision_trees/sick_df.jpg" alt="First DF" style="width: 220; height: 100"/>
 </a>
 
 # Vanilla tree
@@ -33,13 +33,13 @@ But the claim is that forests are superior for their classification accuracy, to
 First, let's look at the vanilla tree. How well does it do, and how computationally expensive is it? There are 20 training observations (n=20), and we have d=3 features. Since one of the features is numerical with 10 unique values, and the other two features are binary (cloudy or sunny, sick or not sick), our laborious information gain algorithm would have to check (10-1 + 1 + 1 = 11) potential split attributes. The best initial split is on "Sick". 
 
 <a>
-	<img src="/images/decision_trees/sick_df2.jpg" alt="DF" style="width: 420; height: 300"/>
+	<img src="/images/decision_trees/sick_df2.jpg" alt="Second DF" style="width: 420; height: 300"/>
 </a>
 
 At this point, the we have one pure node. The entropy of the "Not Sick" node is 0, so we would code our algorithm to stop searching for a further split when we have reached this state. For the "Sick" node, we'll still look for a second optimal split. We sort of lucked out, as there are only 2 unique temperature values (85 and 90), we only need to check 2 more potential splits (1 for the temperature feature and 1 for the cloud cover). We can easily see that splitting on "Cloudy" is the way to go.
 
 <a>
-	<img src="/images/decision_trees/sick_df3.jpg" alt="DF" style="width: 420; height: 300"/>
+	<img src="/images/decision_trees/sick_df3.jpg" alt="3rd DF" style="width: 420; height: 300"/>
 </a>
 
 After two splits, we have a pretty nice looking model. With a tree depth of 2, we have 3 pure end leaves. So how would the process work for a random forest? Could we achieve similar results?
@@ -50,19 +50,19 @@ Let's randomly pick 2 of our 3 features and we'll randomly select 5 of our train
 
 Subset 1.
 <a>
-	<img src="/images/decision_trees/1.jpg" alt="DF" style="width: 220; height: 50"/>
+	<img src="/images/decision_trees/1.jpg" alt="sub DF" style="width: 220; height: 50"/>
 </a>
 
 ![](/images/decision_trees/1.jpg?raw=true)
 
 Subset 2.
 <a>
-	<img src="/images/decision_trees/2.jpg" alt="DF" style="width: 220; height: 50"/>
+	<img src="/images/decision_trees/2.jpg" alt="sub 2 DF" style="width: 220; height: 50"/>
 </a>
 
 Subset 3.
 <a>
-	<img src="/images/decision_trees/3.jpg" alt="DF" style="width: 220; height: 50"/>
+	<img src="/images/decision_trees/3.jpg" alt="sub 3DF" style="width: 220; height: 50"/>
 </a>
 
 {% if page.comments %}
