@@ -50,17 +50,17 @@ Let's randomly pick 2 of our 3 features and we'll randomly select 5 of our train
 
 Subset 1.
 <a>
-	<img src="/images/decision_trees/1.jpg" alt="DF" style="width: 220; height: 100"/>
+	<img src="/images/decision_trees/1.jpg" alt="DF" style="width: 220; height: 50"/>
 </a>
 
 Subset 2.
 <a>
-	<img src="/images/decision_trees/2.jpg" alt="DF" style="width: 220; height: 100"/>
+	<img src="/images/decision_trees/2.jpg" alt="DF" style="width: 220; height: 50"/>
 </a>
 
 Subset 3.
 <a>
-	<img src="/images/decision_trees/3.jpg" alt="DF" style="width: 220; height: 100"/>
+	<img src="/images/decision_trees/3.jpg" alt="DF" style="width: 220; height: 50"/>
 </a>
 
 {% if page.comments %}
