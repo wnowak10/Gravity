@@ -53,6 +53,8 @@ Subset 1.
 	<img src="/images/decision_trees/1.jpg" alt="DF" style="width: 220; height: 50"/>
 </a>
 
+![](/images/decision_trees/1.jpg?raw=true)
+
 Subset 2.
 <a>
 	<img src="/images/decision_trees/2.jpg" alt="DF" style="width: 220; height: 50"/>
