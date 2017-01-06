@@ -50,7 +50,7 @@ Let's randomly pick 2 of our 3 features and we'll randomly select 5 of our train
 
 Subset 1.
 <a>
-	<img src="/images/decision_trees/1.jpg" alt="sub DF" style="width: 720; height: 100"/>
+	<img src="/images/decision_trees/1.jpg" alt="sub DF" style="width: 320; height: 100"/>
 </a>
 
 ![](/images/decision_trees/1.jpg?raw=true)
@@ -64,6 +64,14 @@ Subset 3.
 <a>
 	<img src="/images/decision_trees/3.jpg" alt="sub 3DF" style="width: 220; height: 50"/>
 </a>
+
+For subset 1, the initial entropy is 0, so we don't have to evaluate any split points. The same is true of subset 3!
+
+For subset 1, we do have some "Tea" outcomes, so let's consider the optimal split. There are 3 unique temperature values, and 2 outcomes for sick, so we need to check 3 (3- 1 + 1) potential split attributes. With a little consideration, we can see that splitting on sickness (or on temperature with the node between 60 and 90 degrees) results in the best information gain. If the individual is not sick, we have a pure leaf -- coffee. If the person is sick, it is a toss up (50-50) if coffee or tea is the breakfast beverage of choice. 
+
+So, with this forest in place, let's see how our model does at predicting. Without much work, we can see that it does pretty poorly. Since two of the trees purely predict coffee, and we only made a 3-tree forest, 2/3 of the votes will be for coffee, regardless of the feature inputs. This model will only be right 14/20 times. 
+
+So it seems that our forest was a bit small. We only looked at too few training obs or too few features. So I've still failed to convince anyone that forests do work with high accuracy. I suspect that my toy example was a bit too simplistic. Just like polling fails to work well when samples are too small, forests won't work with too few training observations or features or trees. It would be a pain to manually work through another example with more trees and features, so let's see if I can implement something in Python that makes the issue clear.  
 
 {% if page.comments %}
 
