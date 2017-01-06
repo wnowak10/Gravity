@@ -50,7 +50,7 @@ Let's randomly pick 2 of our 3 features and we'll randomly select 5 of our train
 
 Subset 1.
 <a>
-	<img src="/images/decision_trees/1.jpg" alt="sub DF" style="width: 220; height: 50"/>
+	<img src="/images/decision_trees/1.jpg" alt="sub DF" style="width: 720; height: 100"/>
 </a>
 
 ![](/images/decision_trees/1.jpg?raw=true)
