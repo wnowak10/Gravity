@@ -75,7 +75,18 @@ So, with this forest in place, let's see how our model does at predicting. Witho
 
 So it seems that our forest was a bit small. We only looked at too few training obs or too few features. So I've still failed to convince anyone that forests do work with high accuracy. I suspect that my toy example was a bit too simplistic. Just like polling fails to work well when samples are too small, forests won't work with too few training observations or features or trees. It would be a pain to manually work through another example with more trees and features, so let's see if I can implement something in Python that makes the issue clear.  
 
-[Elements of Statistical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/) by Hastie and Tibshirani, section 8.7, gets at the issue here. 
+[Elements of Statistical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/) by Hastie and Tibshirani, section 8.7, gives a nice discussion of what we are discussing here. 
+
+<a>
+	<img src="/images/decision_trees/esl_forest_error.png" alt="ESL" style="width: 420; height: 300"/>
+</a>
+
+
+Let's try to recreate and expand upon their example. They fabricate some data and then compare a tree to a forest. The key result that they find is shown in the following chart...
+
+The error rate of the forest drops well below the test error rate for an individual tree, once the number of trees in the forest gets to ~10.
+
+
 
 {% if page.comments %}
 
