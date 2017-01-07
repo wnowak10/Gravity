@@ -51,18 +51,21 @@ After two splits, we have a pretty nice looking model. With a tree depth of 2, w
 Let's randomly pick 2 of our 3 features and we'll randomly select 5 of our training observations. Let's repeat this process 3 times and see what happens. My random generator produced {(1,2),(1,3),(1,3)}, so I'll look at these features. After randomly selecting 5 rows, we find the following for our subsetted dataframes:
 
 Subset 1.
-<a>
+<br>
+<!-- <a>
 	<img src="/images/decision_trees/1.jpg" alt="sub DF" style="width: 320; height: 100"/>
 </a>
-
+ -->
 ![](/images/decision_trees/1.jpg?raw=true)
 
 Subset 2.
+<br>
 <a>
 	<img src="/images/decision_trees/2.jpg" alt="sub 2 DF" style="width: 220; height: 50"/>
 </a>
 
 Subset 3.
+<br>
 <a>
 	<img src="/images/decision_trees/3.jpg" alt="sub 3DF" style="width: 220; height: 50"/>
 </a>
@@ -77,12 +80,11 @@ So it seems that our forest was a bit small. We only looked at too few training 
 
 [Elements of Statistical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/) by Hastie and Tibshirani, section 8.7, gives a nice discussion of what we are discussing here. 
 
+Let's try to recreate and expand upon their example. They fabricate some data and then compare a tree to a forest. The key result that they find is shown in the following chart...
+
 <a>
 	<img src="/images/decision_trees/esl_forest_error.png" alt="ESL" style="width: 420; height: 300"/>
 </a>
-
-
-Let's try to recreate and expand upon their example. They fabricate some data and then compare a tree to a forest. The key result that they find is shown in the following chart...
 
 The error rate of the forest drops well below the test error rate for an individual tree, once the number of trees in the forest gets to ~10.
 
