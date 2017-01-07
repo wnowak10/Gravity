@@ -9,10 +9,12 @@ comments: true
 
 In previous posts, I explained decision trees, and how various algorithms search for optimal split points, given training features and label data. Popular decision tree libraries often go further, having the ability to construct *forest* classifiers. What are random forests and why are they so popular? Let's figure this out:
 
-<a>
-	<img src="/images/decision_trees/forest.jpg" alt="Forest" style="width: 420; height: 300"/>
+<iframe src="//giphy.com/embed/TuptaxRZphuyA" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<p><a href="http://giphy.com/gifs/forest-TuptaxRZphuyA">via GIPHY</a></p>
+
+<!-- 	<img src="/images/decision_trees/forest.jpg" alt="Forest" style="width: 420; height: 300"/>
 </a>
-[Photo](http://shushi168.com/data/out/82/36353757-forest.jpg)
+[Photo](http://shushi168.com/data/out/82/36353757-forest.jpg) -->
 
 The idea of how random forests work isn't so confusing. As I understand it, to construct a forest, we simply generate many trees. To build each tree, we select both a random subset of the training data, and a random subset of features that we choose to use as predictors (hence the moniker RANDOM). We construct many of these random trees to create a forest. In the end, we average (or in some other way) these individual, predictive trees to create a final model. This can be through a simple vote (that is, we look at the predicted class from each tree and accept the prediction with the highest vote total) or some other way. Thales Sehn Körting explains this well in his youtube [video](https://www.youtube.com/watch?v=loNcrMjYh64).
 
@@ -67,11 +69,13 @@ Subset 3.
 
 For subset 1, the initial entropy is 0, so we don't have to evaluate any split points. The same is true of subset 3!
 
-For subset 1, we do have some "Tea" outcomes, so let's consider the optimal split. There are 3 unique temperature values, and 2 outcomes for sick, so we need to check 3 (3- 1 + 1) potential split attributes. With a little consideration, we can see that splitting on sickness (or on temperature with the node between 60 and 90 degrees) results in the best information gain. If the individual is not sick, we have a pure leaf -- coffee. If the person is sick, it is a toss up (50-50) if coffee or tea is the breakfast beverage of choice. 
+For subset 2, we do have some "Tea" outcomes, so let's consider the optimal split. There are 3 unique temperature values, and 2 outcomes for sick, so we need to check 3 (3- 1 + 1) potential split attributes. With a little consideration, we can see that splitting on sickness (or on temperature with the node between 60 and 90 degrees) results in the best information gain. If the individual is not sick, we have a pure leaf -- coffee. If the person is sick, it is a toss up (50-50) if coffee or tea is the breakfast beverage of choice. 
 
 So, with this forest in place, let's see how our model does at predicting. Without much work, we can see that it does pretty poorly. Since two of the trees purely predict coffee, and we only made a 3-tree forest, 2/3 of the votes will be for coffee, regardless of the feature inputs. This model will only be right 14/20 times. 
 
 So it seems that our forest was a bit small. We only looked at too few training obs or too few features. So I've still failed to convince anyone that forests do work with high accuracy. I suspect that my toy example was a bit too simplistic. Just like polling fails to work well when samples are too small, forests won't work with too few training observations or features or trees. It would be a pain to manually work through another example with more trees and features, so let's see if I can implement something in Python that makes the issue clear.  
+
+[Elements of Statistical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/) by Hastie and Tibshirani, section 8.7, gets at the issue here. 
 
 {% if page.comments %}
 
