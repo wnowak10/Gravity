@@ -9,8 +9,8 @@ comments: true
 
 In previous posts, I explained decision trees, and how various algorithms search for optimal split points, given training features and label data. Popular decision tree libraries often go further, having the ability to construct *forest* classifiers. What are random forests and why are they so popular? Let's figure this out:
 
-<iframe src="//giphy.com/embed/TuptaxRZphuyA" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-<p><a href="http://giphy.com/gifs/forest-TuptaxRZphuyA">via GIPHY</a></p>
+<iframe src="//giphy.com/embed/TuptaxRZphuyA" width="680" height="520" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<p><a href="http://giphy.com/gifs/forest-TuptaxRZphuyA"> GIPHY</a></p>
 
 <!-- 	<img src="/images/decision_trees/forest.jpg" alt="Forest" style="width: 420; height: 300"/>
 </a>
