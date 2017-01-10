@@ -129,6 +129,56 @@ y[less]=sample(outcomes,length(less),replace = T,prob = c(BER,1-BER))
 y
 ```
 
+I next built the tree, using rpart:
+
+```
+# Classification Tree with rpart
+library(rpart)
+library(rpart.plot)
+# grow tree 
+fit <- rpart(y ~ x1 + x2 + x3 +x4+x5,
+             method="class", data=train_df
+             , minbucket=5)
+
+fit
+rpart.plot(fit,type=0)
+```
+
+Finally, I also generate test data. To use R's predict function, I had to make sure that the variable names in the test set were the same as in the training (x1, x2...)
+
+The code looks like so:
+
+```
+test_x1 = rnorm(2000)
+test_x2 = correlatedValue(x=test_x1, r=.95)
+test_x3  = correlatedValue(x=test_x1, r=.95)
+test_x4 = correlatedValue(x=test_x1, r=.95)
+test_x5 = correlatedValue(x=test_x1, r=.95)
+test_features=data.frame(test_x1,test_x2,
+                         test_x3, test_x4,
+                         test_x5)
+colnames(test_features)=c('x1','x2','x3','x4','x5')
+head(test_features)
+test_greater=which(test_features$x1>.5)
+test_less=which(test_features$x1<.5)
+test_y=rep(0,n)
+test_y[test_greater]=sample(outcomes,length(test_greater),replace = T,prob = c(1-BER,BER))
+test_y[test_less]=sample(outcomes,length(test_less),replace = T,prob = c(BER,1-BER))
+test_y
+sum(test_y)
+
+
+p=predict(fit,newdata=test_features,type="vector")
+# codes 0s as 2s for some reason
+# run this in order!
+p=replace(p, p==1, 0)
+p=replace(p, p==2, 1)
+head(p)
+head(test_y)
+sum(p==test_y)/length(p) # test error!
+```
+
+So, I need to figure out why my test error tends to be smaller than HT&F found. An open question. Please leave comments in comments section!
 
 
 
