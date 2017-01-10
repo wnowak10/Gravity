@@ -188,7 +188,7 @@ sum(p==test_y)/length(p) # test error!
 
 Running all this code often shows that my single tree results in an error of ~30%, which is less than the authors find (seen above in Tree vs forests error chart). I repeated this process 100 times, and a histogram shows a wide spread, but an average error rate for a single tree of ~29%.
 
-![](/images/decision_trees/error_rates.png?raw=true)
+![](/images/decision_trees/error_rate.png?raw=true)
 
 So, I need to figure out why my test error tends to be smaller than HT&F found. An open question, at the moment. Please leave comments in comments section!
 
