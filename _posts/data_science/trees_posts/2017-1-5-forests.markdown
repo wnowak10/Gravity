@@ -88,6 +88,32 @@ Let's try to recreate and expand upon their example. They fabricate some data an
 
 The error rate of the forest drops well below the test error rate for an individual tree, once the number of trees in the forest gets to ~10.
 
+I was able to recreate the basic setup in R, but with some unexpected results. The textbook doesn't delineate the depth of their basic tree, so perhaps that could lead to my errors. But my basic tree model, constructing using R's rpart package, tends to get around a 20-30% error rate, which is well below what they were finding in in ESL.
+
+I first generate features using a helpful script from gung on stackoverflow ([link](http://stats.stackexchange.com/questions/38856/how-to-generate-correlated-random-numbers-given-means-variances-and-degree-of) here).
+
+```
+correlatedValue = function(x, r){
+  r2 = r**2
+  ve = 1-r2
+  SD = sqrt(ve)
+  e  = rnorm(length(x), mean=0, sd=SD)
+  y  = r*x + e
+  return(y)
+}
+
+# credit:
+# http://stats.stackexchange.com/questions/38856/how-to-generate-correlated-random-numbers-given-means-variances-and-degree-of
+
+n=30
+x1 = rnorm(n)
+x2 = correlatedValue(x=x1, r=.95)
+x3  = correlatedValue(x=x1, r=.95)
+x4 = correlatedValue(x=x1, r=.95)
+x5 = correlatedValue(x=x1, r=.95)
+```
+
+
 
 
 {% if page.comments %}
