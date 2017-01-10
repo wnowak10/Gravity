@@ -89,7 +89,7 @@ Tree vs forests error:
 
 The error rate of the forest drops well below the test error rate for an individual tree, once the number of trees in the forest gets to ~10.
 
-I was able to recreate the basic setup in R, but with some unexpected results. The textbook doesn't delineate the depth of their basic tree, so perhaps that could lead to my errors. But my basic tree model, constructing using R's rpart package, tends to get around a 20-30% error rate, which is well below what they were finding in in ESL.
+I was able to recreate the basic setup in R, but with some unexpected results. The full code can be found on github, [here](https://github.com/wnowak10/wnowak10.github.io/blob/master/extra_files/trees_and_forests.R). But my basic tree model, constructing using R's rpart package, tends to get around a 20-30% error rate, which is well below what they were finding in in ESL.
 
 I first generated features using a helpful script from gung on stackoverflow ([link](http://stats.stackexchange.com/questions/38856/how-to-generate-correlated-random-numbers-given-means-variances-and-degree-of) here).
 
@@ -167,7 +167,7 @@ test_y
 sum(test_y)
 ```
 
-I should explain the BER variable. This is set at .2. In ESL, they note that the [Bayes Error Rate](https://en.wikipedia.org/wiki/Bayes_error_rate) of this model is .2. If you check out the construction of y and test_y, you should see that this makes sense. Basically, there is some signal in our dependent variable, but 20% noise, too. That is, if the x<sub>1</sub> variable is above .5, y = 1 with probability .8 (= 1 - BER). If x<sub>1</sub> < .5, y = 1 with probability .2. So the construction model is pretty simple. We should have one split for x<sub>1</sub>. If x<sub>1</sub> < .5, predicting 0 is our models' best bet, and if x<sub>1</sub> > .5, we should predict 1. 
+I should explain the BER variable. In ESL, they note that the [Bayes Error Rate](https://en.wikipedia.org/wiki/Bayes_error_rate) of this model is .2. If you check out the construction of y and test_y, you should see that this makes sense. Basically, there is some signal in our dependent variable, but 20% noise, too. That is, if the x<sub>1</sub> variable is above .5, y = 1 with probability .8 (= 1 - BER). If x<sub>1</sub> < .5, y = 1 with probability .2. So the construction model is pretty simple. We should have one split for x<sub>1</sub>. If x<sub>1</sub> < .5, predicting 0 is our models' best bet, and if x<sub>1</sub> > .5, we should predict 1. 
 
 ![](/images/decision_trees/parsimonious_model.png?raw=true)
 
