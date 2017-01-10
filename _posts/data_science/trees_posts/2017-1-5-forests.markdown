@@ -91,7 +91,7 @@ The error rate of the forest drops well below the test error rate for an individ
 
 I was able to recreate the basic setup in R, but with some unexpected results. The textbook doesn't delineate the depth of their basic tree, so perhaps that could lead to my errors. But my basic tree model, constructing using R's rpart package, tends to get around a 20-30% error rate, which is well below what they were finding in in ESL.
 
-I first generate features using a helpful script from gung on stackoverflow ([link](http://stats.stackexchange.com/questions/38856/how-to-generate-correlated-random-numbers-given-means-variances-and-degree-of) here).
+I first generated features using a helpful script from gung on stackoverflow ([link](http://stats.stackexchange.com/questions/38856/how-to-generate-correlated-random-numbers-given-means-variances-and-degree-of) here).
 
 ```
 correlatedValue = function(x, r){
@@ -117,7 +117,7 @@ x5 = correlatedValue(x=x1, r=.95)
 Next, I need to generate the dependent variable. This was kinda a pain. I determined the list index for when variable x<sub>1</sub> was above and below .5. Then, I replaced y (which was initially set to a vector of 0's) values with sampled values, using the rule from the text:
 
 ![](/images/decision_trees/rule.png?raw=true)
-
+<br>
 
 ```
 outcomes=c(1,0)
@@ -167,13 +167,13 @@ test_y
 sum(test_y)
 ```
 
-I should explain the BER variable. This is set at .2. In ESL, they note that the Bayes Error Rate of this model is .2. If you check out the construction of y and test_y, you should see that this makes sense. Basically, there is some signal in our dependent variable, but 20% noise, too. That is, if the x<sub>1</sub> variable is above .5, y = 1 with probability .8 (= 1 - BER). If x<sub>1</sub> < .5, y = 1 with probability .2. So the construction model is pretty simple. We should have one split for x<sub>1</sub>. If x<sub>1</sub> < .5, predicting 0 is our models' best bet, and if x<sub>1</sub> > .5, we should predict 1. 
+I should explain the BER variable. This is set at .2. In ESL, they note that the [Bayes Error Rate](https://en.wikipedia.org/wiki/Bayes_error_rate) of this model is .2. If you check out the construction of y and test_y, you should see that this makes sense. Basically, there is some signal in our dependent variable, but 20% noise, too. That is, if the x<sub>1</sub> variable is above .5, y = 1 with probability .8 (= 1 - BER). If x<sub>1</sub> < .5, y = 1 with probability .2. So the construction model is pretty simple. We should have one split for x<sub>1</sub>. If x<sub>1</sub> < .5, predicting 0 is our models' best bet, and if x<sub>1</sub> > .5, we should predict 1. 
 
 ![](/images/decision_trees/parsimonious_model.png?raw=true)
 
 This correct and parsimonious model will never reliably do better than an error rate of 20%, as we built this pure randomness into the model. 
 
-To use R's predict function, I had to make sure that the variable names in the test set were the same as in the training (x1, x2...). I rename with the colnames() function. 
+Then, to use R's predict function, I had to make sure that the variable names in the test set were the same as in the training (x1, x2...). I rename with the colnames() function. 
 
 ```
 p=predict(fit,newdata=test_features,type="vector")
@@ -186,7 +186,11 @@ head(test_y)
 sum(p==test_y)/length(p) # test error!
 ```
 
-Running all this code often shows that my single tree results in an error of ~30%, which is less than the authors find (seen above in Tree vs forests error chart). So, I need to figure out why my test error tends to be smaller than HT&F found. An open question, at the moment. Please leave comments in comments section!
+Running all this code often shows that my single tree results in an error of ~30%, which is less than the authors find (seen above in Tree vs forests error chart). I repeated this process 100 times, and a histogram shows a wide spread, but an average error rate for a single tree of ~29%.
+
+![](/images/decision_trees/error_rates.png?raw=true)
+
+So, I need to figure out why my test error tends to be smaller than HT&F found. An open question, at the moment. Please leave comments in comments section!
 
 
 
