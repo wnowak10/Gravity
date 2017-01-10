@@ -82,6 +82,7 @@ So it seems that our forest was a bit small. We only looked at too few training 
 
 Let's try to recreate and expand upon their example. They fabricate some data and then compare a tree to a forest. The key result that they find is shown in the following chart...
 
+Tree vs forests error:
 <a>
 	<img src="/images/decision_trees/esl_forest_error.png" alt="ESL" style="width: 420; height: 300"/>
 </a>
@@ -144,9 +145,7 @@ fit
 rpart.plot(fit,type=0)
 ```
 
-Finally, I also generate test data. To use R's predict function, I had to make sure that the variable names in the test set were the same as in the training (x1, x2...)
-
-The code looks like so:
+Finally, I also generate test data. 
 
 ```
 test_x1 = rnorm(2000)
@@ -166,8 +165,17 @@ test_y[test_greater]=sample(outcomes,length(test_greater),replace = T,prob = c(1
 test_y[test_less]=sample(outcomes,length(test_less),replace = T,prob = c(BER,1-BER))
 test_y
 sum(test_y)
+```
 
+I should explain the BER variable. This is set at .2. In ESL, they note that the Bayes Error Rate of this model is .2. If you check out the construction of y and test_y, you should see that this makes sense. Basically, there is some signal in our dependent variable, but 20% noise, too. That is, if the x<sub>1</sub> variable is above .5, y = 1 with probability .8 (= 1 - BER). If x<sub>1</sub> < .5, y = 1 with probability .2. So the construction model is pretty simple. We should have one split for x<sub>1</sub>. If x<sub>1</sub> < .5, predicting 0 is our models' best bet, and if x<sub>1</sub> > .5, we should predict 1. 
 
+![](/images/decision_trees/parsimonious_model.png?raw=true)
+
+This correct and parsimonious model will never reliably do better than an error rate of 20%, as we built this pure randomness into the model. 
+
+To use R's predict function, I had to make sure that the variable names in the test set were the same as in the training (x1, x2...). I rename with the colnames() function. 
+
+```
 p=predict(fit,newdata=test_features,type="vector")
 # codes 0s as 2s for some reason
 # run this in order!
@@ -178,7 +186,7 @@ head(test_y)
 sum(p==test_y)/length(p) # test error!
 ```
 
-So, I need to figure out why my test error tends to be smaller than HT&F found. An open question. Please leave comments in comments section!
+Running all this code often shows that my single tree results in an error of ~30%, which is less than the authors find (seen above in Tree vs forests error chart). So, I need to figure out why my test error tends to be smaller than HT&F found. An open question, at the moment. Please leave comments in comments section!
 
 
 
