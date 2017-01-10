@@ -113,6 +113,22 @@ x4 = correlatedValue(x=x1, r=.95)
 x5 = correlatedValue(x=x1, r=.95)
 ```
 
+Next, I need to generate the dependent variable. This was kinda a pain. I determined the list index for when variable x<sub>1</sub> was above and below .5. Then, I replaced y (which was initially set to a vector of 0's) values with sampled values, using the rule from the text:
+
+![](/images/decision_trees/rule.png?raw=true)
+
+
+```
+outcomes=c(1,0)
+BER = .2
+greater=which(x1>.5)
+less=which(x1<.5)
+y=rep(0,n)
+y[greater]=sample(outcomes,length(greater),replace = T,prob = c(1-BER,BER))
+y[less]=sample(outcomes,length(less),replace = T,prob = c(BER,1-BER))
+y
+```
+
 
 
 
