@@ -9,7 +9,7 @@ comments: true
 ---
 
 <a>
-	<img src="/images/photos/PMAC.jpg" alt="PMAC" style="width: 960; height: 720"/>
+	<img src="/images/photos/PMAC.jpg" alt="PMAC" style="width: 720; height: 960"/>
 </a>
 
 {% if page.comments %}
