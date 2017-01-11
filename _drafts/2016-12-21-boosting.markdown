@@ -6,6 +6,8 @@ categories: data_science
 author: "wnowak10"
 ---
 
+In some previous 
+
 Here was the plan. 
 
 * [How do vanilla tree algorithms even work](#algorithms)
