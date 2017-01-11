@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "PMAC"
-date:   2017-1-5 19:45:31 +0530
+date:   2017-1-11 19:45:31 +0530
 categories: photos
 author: "wnowak10"
 image: /images/photos/pmac.jpg
 comments: true
 ---
 
-![](/images/photos/PMAC.jpb?raw=true)
+![](/images/photos/PMAC.jpg?raw=true)
 
 {% if page.comments %}
 
