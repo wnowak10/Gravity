@@ -1,3 +1,8 @@
+# randomForest
+
+# create function called predd that returns test accuracy
+# arguments of function include minTreeDepth
+
 correlatedValue = function(x, r){
   r2 = r**2
   ve = 1-r2
@@ -7,17 +12,9 @@ correlatedValue = function(x, r){
   return(y)
 }
 
-# above is returns correlated variable to given variable
-# with level of cor given by r
-# credit:
-# http://stats.stackexchange.com/questions/38856/how-to-generate-correlated-random-numbers-given-means-variances-and-degree-of
 
-
-# create function called predd that returns test accuracy
-# arguments of function include minTreeDepth
-
-tree_prediction= function(minTreeDepth)
-  {
+forest_prediction= function(numTrees)
+{
   #set.seed(6)
   
   n=30 # number of variables in training set
@@ -45,12 +42,13 @@ tree_prediction= function(minTreeDepth)
   train_df$y=as.factor(train_df$y)
   
   # Classification Tree with rpart
-  library(rpart)
-  library(rpart.plot)
+  library(randomForest)
+  #library(rpart.plot)
   # grow tree 
-  fit <- rpart(y ~ x1 + x2 + x3 +x4+x5,
-               method="class", data=train_df
-               , minbucket=minTreeDepth)
+  #numTrees=500
+  forestFit <- randomForest(y ~ x1 + x2 + x3 +x4+x5,
+                            data=train_df,
+                            ntree=numTrees)
   
   # if i want to plot
   #rpart.plot(fit,type=0)
@@ -78,7 +76,7 @@ tree_prediction= function(minTreeDepth)
   test_y[test_less]=sample(outcomes,length(test_less),replace = T,prob = c(BER,1-BER))
   
   # how does model do on training data? what is error?
-  train_p=predict(fit,newdata=train_features,type="vector")
+  train_p=predict(forestFit,newdata=train_features,type="response")
   # codes 0s as 2s for some reason
   # run this in order!
   train_p=replace(train_p, train_p==1, 0)
@@ -88,14 +86,14 @@ tree_prediction= function(minTreeDepth)
   sum(train_p==y)/length(train_p) # train success rate
   
   # how does model do on test data? what is error?
-  p=predict(fit,newdata=test_features,type="vector")
+  p=predict(forestFit,newdata=test_features,type="response")
   # codes 0s as 2s for some reason
   # run this in order!
   p=replace(p, p==1, 0)
   p=replace(p, p==2, 1)
   head(p)
   head(test_y)
-  return(sum(p==test_y)/length(p)) # test success!
+  sum(p==test_y)/length(p) # test success!
   
   
   # now construct forest annd do again
@@ -108,17 +106,18 @@ tree_prediction= function(minTreeDepth)
   # make forest with boot strap vs samples from data
   # make forest with various # features
   # compare test accuracy of these
- 
+  
   
 }
+
+
 success_rates=c()
 for(i in seq(10)) {
-  success_rates=c(success_rates,tree_prediction(10))
+  success_rates=c(success_rates,forest_prediction(2))
 }
+success_rates
+
 title=sprintf("Distribution of Error Rates (mean = %s)", mean(1-success_rates))
-hist(1-success_rates,breaks=seq(.1,.6,.05),
-     xlab="Error Rate",main=title)
+hist(1-success_rates,breaks=seq(.1,.6,.05),main=title)
 abline(v=mean(1-success_rates),col="red")
-
-
 

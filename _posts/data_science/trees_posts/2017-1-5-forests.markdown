@@ -186,11 +186,25 @@ head(test_y)
 sum(p==test_y)/length(p) # test error!
 ```
 
-Running all this code often shows that my single tree results in an error of ~30%, which is less than the authors find (seen above in Tree vs forests error chart). I repeated this process 100 times, and a histogram shows a wide spread, but an average error rate for a single tree of ~29%.
+Running all this code often shows that my single tree results in an error of ~30%, which is less than the authors find (seen above in Tree vs forests error chart). I repeated this process 100 times, and a histogram shows a wide spread, but an average error rate for a single tree of ~20-40%.
 
 ![](/images/decision_trees/error_rate.png?raw=true)
 
 So, I need to figure out why my test error tends to be smaller than HT&F found. An open question, at the moment. Please leave comments in comments section!
+
+Nevertheless, let's continue on with our original purpose. I wanted to see the empirical results of forests, versus trees. Let's run some experiments and see how we fare when we begin to tweak the model and/or parameters.
+
+# Trees versus forests
+
+I ran similar code, using R's randomForest function. Alas, the results are not good. With 1 tree in the forest, I find an average error rate that is far different from my rpart tree constructed above. Shouldn't a 1 tree forest = a tree? I am unclear why the different exists. We also see that the variance of forest models with 1 tree is well below the variance of my rpart tree models above. Forest should have lower variance, but again, not this 1 tree forest. Something is askew. 
+
+![](/images/decision_trees/1treeForest.png?raw=true)
+
+Another problem is that there is essentially no difference in the model as the number of trees in the forest increases. Below is a histogram showing the test error rates on 100 simulations. This looks nearly identical to the histogram showing the error rates for a 1 tree forest. WTF?
+
+![](/images/decision_trees/500treeForest.png?raw=true)
+
+Clearly, there's some misunderstanding on my part. Bummer. I'll try to work through it and update you all as I go. This post has grown a bit long and needs to be pruned :), so I think it'll probably be best to conduct some further debugging in further posts. I'll link to those here, as they are created. 
 
 
 

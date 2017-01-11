@@ -95,7 +95,7 @@ tree_prediction= function(minTreeDepth)
   p=replace(p, p==2, 1)
   head(p)
   head(test_y)
-  return(sum(p==test_y)/length(p)) # test success!
+  return sum(p==test_y)/length(p) # test success!
   
   
   # now construct forest annd do again
@@ -116,8 +116,7 @@ for(i in seq(10)) {
   success_rates=c(success_rates,tree_prediction(10))
 }
 title=sprintf("Distribution of Error Rates (mean = %s)", mean(1-success_rates))
-hist(1-success_rates,breaks=seq(.1,.6,.05),
-     xlab="Error Rate",main=title)
+hist(1-success_rates,breaks=seq(.1,.6,.05),main=title)
 abline(v=mean(1-success_rates),col="red")
 
 
