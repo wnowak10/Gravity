@@ -8,7 +8,9 @@ image: /images/photos/pmac.jpg
 comments: true
 ---
 
-![](/images/photos/PMAC.jpg?raw=true)
+<a>
+	<img src="/images/photos/PMAC.jpg" alt="PMAC" style="width: 960; height: 720"/>
+</a>
 
 {% if page.comments %}
 
