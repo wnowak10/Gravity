@@ -10,9 +10,7 @@ comments: true
 
 I love this song. I know it's probably not cool to like the Lumineers, but oh well:
 
-<a>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/_II0fc7hgNY" frameborder="0" allowfullscreen></iframe>
-</a>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_II0fc7hgNY" frameborder="0" allowfullscreen></iframe>
 
 {% if page.comments %}
 
