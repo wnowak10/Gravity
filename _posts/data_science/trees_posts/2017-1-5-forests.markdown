@@ -169,7 +169,7 @@ sum(test_y)
 
 I should explain the BER variable. In ESL, they note that the [Bayes Error Rate](https://en.wikipedia.org/wiki/Bayes_error_rate) of this model is .2. If you check out the construction of y and test_y, you should see that this makes sense. Basically, there is some signal in our dependent variable, but 20% noise, too. That is, if the x<sub>1</sub> variable is above .5, y = 1 with probability .8 (= 1 - BER). If x<sub>1</sub> < .5, y = 1 with probability .2. So the construction model is pretty simple. We should have one split for x<sub>1</sub>. If x<sub>1</sub> < .5, predicting 0 is our models' best bet, and if x<sub>1</sub> > .5, we should predict 1. 
 
-![](/images/decision_trees/parsimonious_model.png?raw=true)
+![20% BER](/images/decision_trees/parsimonious_model.png?raw=true)
 
 This correct and parsimonious model will never reliably do better than an error rate of 20%, as we built this pure randomness into the model. 
 
