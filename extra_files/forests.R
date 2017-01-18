@@ -73,7 +73,8 @@ forest_prediction= function(numTrees)
   train_df=make_train_data(30)
   forestFit <- randomForest(y ~ x1 + x2 + x3 +x4+x5,
                             data=train_df,
-                            ntree=numTrees)
+                            ntree=numTrees,
+                            mtry=5)#sample 5 variables
 
   tfs=make_test_features(2000)
   test_labs=make_test_label(tfs,2000)

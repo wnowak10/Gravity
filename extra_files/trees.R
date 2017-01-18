@@ -16,8 +16,7 @@ correlatedValue = function(x, r){
 # create function called predd that returns test accuracy
 # arguments of function include minTreeDepth
 
-tree_prediction= function(minTreeDepth)
-  {
+tree_prediction= function(minTreeDepth){
   #set.seed(6)
   
   n=30 # number of variables in training set
@@ -48,7 +47,7 @@ tree_prediction= function(minTreeDepth)
   library(rpart)
   library(rpart.plot)
   # grow tree 
-  fit <- rpart(y ~ x1 + x2 + x3 +x4+x5,
+  fit <- rpart(y ~ x1+ x2 + x3 +x4+x5,
                method="class", data=train_df
                , minbucket=minTreeDepth)
   
@@ -95,7 +94,7 @@ tree_prediction= function(minTreeDepth)
   p=replace(p, p==2, 1)
   head(p)
   head(test_y)
-  return sum(p==test_y)/length(p) # test success!
+  return(sum(p==test_y)/length(p)) # test success!
   
   
   # now construct forest annd do again
@@ -108,9 +107,8 @@ tree_prediction= function(minTreeDepth)
   # make forest with boot strap vs samples from data
   # make forest with various # features
   # compare test accuracy of these
- 
-  
 }
+
 success_rates=c()
 for(i in seq(10)) {
   success_rates=c(success_rates,tree_prediction(10))
@@ -118,6 +116,3 @@ for(i in seq(10)) {
 title=sprintf("Distribution of Error Rates (mean = %s)", mean(1-success_rates))
 hist(1-success_rates,breaks=seq(.1,.6,.05),main=title)
 abline(v=mean(1-success_rates),col="red")
-
-
-
