@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Boosting with tree and forest classifiers"
-date:   2017-1-15 19:45:31 +0530
+date:   2017-1-19 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 comments: true
@@ -99,6 +99,7 @@ rpart.plot(fit,type=0)
 ![](/images/decision_trees/stump.png?raw=true)
 
 To understand what this image shows...
+
 * We can see from the data generating function that one single split won't do well to model the data, so her a fairly arbitrary split is made. If x3 >= 1.2, then predict -1, else predict 1. 
 
 
@@ -137,35 +138,155 @@ test_error_rate(fit,tes_df)
 
 Now, we implement the algorithm. 
 
-```
-fit weak classifier
-```
+![](/images/decision_trees/alg10.1.png?raw=true)
 
-With this step done, we find err<sub>m</sub> (2b), \alpha<sub>m</sub> (2c), and we update the weights (2d).
 
 ```
-2b
-2c
-2d
+err=c()
+alpha=c()
+boost = function(m,train_df){
+  n = nrow(train_df)
+  w = rep(1/n,n) #where n is number of training obs
+  for(i in seq(m)){
+    # set training_df to take into account weights
+    boost_fit <- rpart(y ~ x1+x2+x3+x4+x5+
+                   x6+x7+x8+x9+x10,
+                 method="class", data=train_df,
+                 weights = w,
+                 control=rpart.control(maxdepth=1)) # fit initial tree
+    source('predict_error.R')
+    predictions=predictions(boost_fit,train_df) # find predictions
+    # use matrix multiply to find sigma of products
+    err=c(err,(w%*%(predictions!=train_df$y)) / (sum(w)) )
+      # in line above, we are finding sigma (wi * indicator function)
+      # what we are doing is finding the weighted error. 
+      # finding predictions!=train_df$y gives errors, so the inital
+      # round is just the raw error rate. afterwards, ....
+    alpha=c(alpha,log((1-err[i])/(err[i]))) # reference first error (i=1)
+      # if error rate high, this approaches neg inf
+      # if error rate low (near 0), this approaches + inf
+    numeric_mismatch=as.numeric(predictions!=train_df$y)
+    w = w*exp(alpha[i]*numeric_mismatch) # set new weights
+     # if we missed prediction, w changes to w* e^alpha. if error rate
+     # was high, this was like e^-inf = 0...that doesnt make sense?
+  }
+  return(boost_fit)
+}
+```
+
+Let's work through this step by step. First we create empty lists for us to compute err<sub>m</sub> and alpha<sub>m</sub>. In the boost function, we initialize the weights, so every observation has weight 1/n (with n the number of obs). Then, we enter the for loop as per line 2.
+
+For 2a), we fit a stump:
+
+```
+boost_fit <- rpart(y ~ x1+x2+x3+x4+x5+
+                   x6+x7+x8+x9+x10,
+                 method="class", data=train_df,
+                 weights = w,
+                 control=rpart.control(maxdepth=1)) # fit initial tree
+```
+
+For 2b), we compute err<sub>m</sub>. To find the sum of w<sub>i</sub> * I, we use matrix multiplication to find the dot product. To generate the indicator function (such that I = 1 when we have MISpredicted, we run the following):
+
+```
+predictions!=train_df$y
 ``` 
 
-Explain what was just done.
+For 2c), we compute alpha<sub>i</sub>. We can see from the function, that this gives a result approaching negative inf when our prediction is bad (if the error rate is near 1) and positive infinity when our prediction is good (error rate near 0). 
+
+```
+alpha=c(alpha,log((1-err[i])/(err[i]))) # reference first error (i=1)
+```
+
+![](/images/decision_trees/alpha.png?raw=true)
+
+For 2d, we reassign weight values. If we made a mis-prediction in our model, numeric_mismatch = 1, and we therefore raise e to the power of alpha and then multiply by w. Given that w is initially small and positive, this will make w small (w*e^-inf is close to 0). Hmmm...this might be the problem. This doesn't make much since. I thought the goal was to give increasing weight to our misclassifications, so we can learn better from them in the future. 
+
+```
+w = w*exp(alpha[i]*numeric_mismatch) # set new weights
+```
+
+Clearly, something is amiss. When I try to recreate HSL's work with 50 boosting iterations, I get the following chart.
+
+![](/images/decision_trees/boost_progress.png?raw=true)
+
+Compare this to HSL, which shows neat progress in prediction as the number of boosting iterations goes up...
+
+![](/images/decision_trees/figure10.2.png?raw=true)
+
+Can anyone help me determine the problem? Here is the key algorithm code again (where I would guess the error is):
+
+```
+#set wd
+setwd("/Users/wnowak/wnowak10.github.io/extra_files")
+set.seed(6)
+# create training and test data
+source('make_boost_data.R')
+train_df=create_train_data(2000)
+test_df=create_test_data(10000)
+sum(train_df$y==1)
+
+# train model using rpart
+# single stumps. use rpart.control
+library(rpart)
+fit <- rpart::rpart(y ~ x1+x2+x3+x4+x5+
+               x6+x7+x8+x9+x10,
+             method="class", data=train_df,
+             control=rpart.control(maxdepth=1))
+library(rpart.plot)
+rpart.plot(fit,type=0)
+
+# find error rates
+source('predict_error.R')
+predictions=predictions(fit,train_df)
+train_error_rate(predictions,train_df)
+test_error_rate(fit,test_df)
 
 
+err=c()
+alpha=c()
+boost = function(m,train_df){
+  n = nrow(train_df)
+  w = rep(1/n,n) #where n is number of training obs
+  for(i in seq(m)){
+    # set training_df to take into account weights
+    boost_fit <- rpart(y ~ x1+x2+x3+x4+x5+
+                   x6+x7+x8+x9+x10,
+                 method="class", data=train_df,
+                 weights = w,
+                 control=rpart.control(maxdepth=1)) # fit initial tree
+    source('predict_error.R')
+    predictions=predictions(boost_fit,train_df) # find predictions
+    # use matrix multiply to find sigma of products
+    err=c(err,(w%*%(predictions!=train_df$y)) / (sum(w)) )
+      # in line above, we are finding sigma (wi * indicator function)
+      # what we are doing is finding the weighted error. 
+      # finding predictions!=train_df$y gives errors, so the inital
+      # round is just the raw error rate. afterwards, ....
+    alpha=c(alpha,log((1-err[i])/(err[i]))) # reference first error (i=1)
+      # if error rate high, this approaches neg inf
+      # if error rate low (near 0), this approaches + inf
+    numeric_mismatch=as.numeric(predictions!=train_df$y)
+    w = w*exp(alpha[i]*numeric_mismatch) # set new weights
+     # if we missed prediction, w changes to w* e^alpha. if error rate
+     # was high, this was like e^-inf = 0...that doesnt make sense?
+  }
+  return(boost_fit)
+}
 
-It has to do with residuals. Residuals are the errors in prediction from regression models. More on them [here](https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/least-squares-regression/a/introduction-to-residuals).
+boosting_iterations=c()
+error_rates=c()
+for(i in seq(50)){
+  boosting_iterations=c(boosting_iterations,i)
+  boosted_fit=boost(i,train_df)
+  e=test_error_rate(boosted_fit,test_df)
+  error_rates=c(error_rates,e)
+}
 
-
-
-In previous posts, I explained decision trees, and how various algorithms search for optimal split points, given training features and label data. Popular decision tree libraries often go further, having the ability to construct *forest* classifiers. What are random forests and why are they so popular? Let's figure this out:
-
-<iframe src="//giphy.com/embed/TuptaxRZphuyA" width="680" height="520" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-<p><a href="http://giphy.com/gifs/forest-TuptaxRZphuyA"> GIPHY</a></p>
-
-</a>
- -->
-![](/images/decision_trees/1.jpg?raw=true)
-
+plot(boosting_iterations,error_rates,type='line',col='orange')
+boosting_iterations
+error_rates
+```
 
 
 

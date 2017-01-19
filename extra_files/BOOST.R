@@ -1,10 +1,11 @@
 #set wd
 setwd("/Users/wnowak/wnowak10.github.io/extra_files")
-
+set.seed(6)
 # create training and test data
 source('make_boost_data.R')
 train_df=create_train_data(2000)
 test_df=create_test_data(10000)
+sum(train_df$y==1)
 
 # train model using rpart
 # single stumps. use rpart.control
@@ -46,13 +47,23 @@ boost = function(m,train_df){
     alpha=c(alpha,log((1-err[i])/(err[i]))) # reference first error (i=1)
       # if error rate high, this approaches neg inf
       # if error rate low (near 0), this approaches + inf
-    numeric_match=as.numeric(predictions!=train_df$y)
-    w = w*exp(alpha[i]*numeric_match) # set new weights
+    numeric_mismatch=as.numeric(predictions!=train_df$y)
+    w = w*exp(alpha[i]*numeric_mismatch) # set new weights
      # if we missed prediction, w changes to w* e^alpha. if error rate
      # was high, this was like e^-inf = 0...that doesnt make sense?
   }
   return(boost_fit)
 }
 
-boosted_fit=boost(50,train_df)
-test_error_rate(boosted_fit,test_df)
+boosting_iterations=c()
+error_rates=c()
+for(i in seq(50)){
+  boosting_iterations=c(boosting_iterations,i)
+  boosted_fit=boost(i,train_df)
+  e=test_error_rate(boosted_fit,test_df)
+  error_rates=c(error_rates,e)
+}
+
+plot(boosting_iterations,error_rates,type='line',col='orange')
+boosting_iterations
+error_rates
