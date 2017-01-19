@@ -7,7 +7,9 @@ author: "wnowak10"
 comments: true
 ---
 
-[Cyclingtips](https://cyclingtips.com/2017/01/the-grubers-shortlist-2016-mark-gunter-photography-of-the-year-awards/) best pics of the year:
+[Cyclingtips](https://cyclingtips.com/2017/01/the-grubers-shortlist-2016-mark-gunter-photography-of-the-year-awards/) best pics of the year.
+
+My favorites:
 
 ![](/images/bridge.jpg?raw=true)
 
