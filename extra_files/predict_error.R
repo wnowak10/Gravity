@@ -1,7 +1,7 @@
 #predict_error
 
 predictions = function(fit,train_df){
-  train_p=predict(fit,data=train_df$y,type="vector")
+  train_p=predict(fit,newdata=train_df,type="vector")
   # replace to match -1 and 1 with training label
   train_p=replace(train_p, train_p==1, -1)
   train_p=replace(train_p, train_p==2, 1)
