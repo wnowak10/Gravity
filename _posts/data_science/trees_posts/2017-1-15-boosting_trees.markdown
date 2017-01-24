@@ -258,7 +258,7 @@ HSL find the following with this data and their simulations.
 
 When I recreate (and lower boosting iterations, as running for 1:400 iterations takes a bit long), I find:
 
-![](/images/decision_trees/error_rate_for1-50.png?raw=true)
+![](/images/decision_trees/boost_progress.png?raw=true)
 
 
 {% if page.comments %}
