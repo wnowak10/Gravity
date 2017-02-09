@@ -12,7 +12,7 @@ $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:     80px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
@@ -23,7 +23,7 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    1000px;
+$content-width:    1200px;
 
 $on-palm:          600px;
 $on-laptop:        1200px;
@@ -59,7 +59,7 @@ $on-laptop:        1200px;
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
-    margin: 10;
+    margin: 0;
     padding: 0;
 }
 
