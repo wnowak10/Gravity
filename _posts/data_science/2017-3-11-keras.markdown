@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Basic Keras NN"
-date:   2016-12-16 19:45:31 +0530
+date:   2017-3-11 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 comments: true
