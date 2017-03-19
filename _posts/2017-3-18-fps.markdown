@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "Life in slow mo"
+date:   2017-3-18 19:45:31 +0530
+categories: other
+author: "wnowak10"
+comments: true
+---
+
+Out of curiosity, I was wondering at what speed Processing rendered video. My google search of "how many frames per second is processing?" displayed that the primary search for "how many frames per second is real life?". An awesome search, and I didn't know the answer.
+
+This led me [here](http://nerdist.com/your-brain-has-a-frame-rate-and-its-pretty-slow/). Lots of cool stuff, but this was my favorite.   
+
+> “But at least humans don’t see life like stop-motion animation. “Booralana tricarinata, a deep-sea cousin of the roly-poly, boasts the lowest known C.F.F. (Critical Flicker Frequency): four flashes a second. Its view of life may be something like a fitful and grainy stop-motion film,” writes Ferris Jabr in [The New Yorker](http://www.newyorker.com/tech/elements/how-does-a-chicken-tell-time).”
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
