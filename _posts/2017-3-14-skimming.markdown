@@ -16,13 +16,13 @@ As a teacher and someone who likes to consider myself a free-thinker, I apprecia
 
 Of course, the benefit of skimming is time saved. Less time reading document X creates more time for document Y. Yet, the risk of skimming, of course, is missed information. If the goal of reading is knowledge acquisition (which I recognize is not a universal goal of reading, but is most often mine), and words are the medium of communication, reading fewer of them puts you at risk of neglecting some valuable input.
 
-*What to skim?
+* What to skim?
 
 I use the following implicit strategy when determining to skim:
 
-** What is the topic?
-** What is the medium?
-** How is it written?
+1. What is the topic?
+2. What is the medium?
+3. How is it written?
 
 If I have some degree of familiarity with a combination of topic, medium, and style, I’ll be more likely to skim.
 
