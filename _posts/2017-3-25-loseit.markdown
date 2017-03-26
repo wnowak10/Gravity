@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "If you can't afford to lose it, you can't afford it"
+date:   2017-3-18 19:45:31 +0530
+categories: other
+author: "wnowak10"
+comments: true
+---
+
+I was listening to Tim Ferriss, and his discussion with Mr. Money Mustache. I enjoyed the entire [discussion](http://tim.blog/2017/02/13/mr-money-mustache/) and would recommend listening to it all...but my favorite quote was the following, with regards to personal finance and expenditures:
+
+> "If you can't afford to lose it, you can't afford it."
+
+I loved this. Mr. Mustache (Pete Adeney), I think, does well to see money spending as a psychological act with short and long term consequences that need to be thought through. Increasingly, I've been reveling in all sorts of stuff that I find, initially, less valuable. 
+
+For example, I've recently been shredding on my brothers 1997 Klein Attitude Race...
+
+![](/images/arace.jpg?raw=true)
+
+It has seen better days, but it still gets the job done. All the while, the fact that the bike is 20+ years old and still going strong(ish) gives me extended utility. that, and the fact that if I were to destroy it, I'd feel no strong sense of loss (I've thoroughly benefited from any reasonable expectation of its life cycle) 
+
+So, because I don't think of it as so important, the bike (or whatever other less valued object it is) doesn't worry me. I CAN afford to lose it. And, as a result, paradoxically, I find that the object then increases in value for me.
+
+Is this behavior of mine rational, or the opposite?
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
