@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "PCA for your life"
+date:   2017-4-14 19:45:31 +0530
+categories: other
+author: "wnowak10"
+comments: true
+---
+
+PCA = Principal Component Analysis. This is a useful trick used often in data science and other fields in order to reduce dimensionality. An easy way to think of it is this: 
+
+Given this data in two dimensions, what line (when the data is projected thereupon) yields the greatest variance in the data?
+
+![](/images/pca.jpg?raw=true) 
+[Image](https://georgemdallas.wordpress.com/2013/10/30/principal-component-analysis-4-dummies-eigenvectors-eigenvalues-and-dimension-reduction/)
+
+This dimension would then become our "principle component".
+
+This procedure has many uses, as it allows us to simplify what is otherwise a less tractable issue (data in high dimension space).
+
+This [link](http://setosa.io/ev/principal-component-analysis/) has some awesome interactive demonstrations of what exactly is going on. 
+
+Anyways, the title of this post is "PCA for your life". So I want to focus on that, actually.
+
+Everyone has various dimensions to their life: things like family and work are probably common for most individuals. In data science, we are often interested in reducing dimensionality. We want to boil problems down to simplify them and understand the "essence" of the data. In life, too, reducing dimensionality is probably a good thing, at times. What are the principle components of your life? Knowing thyself (and thy principle components) likely makes for a stronger and better adapted human being.  
+
+However, I also often think that PCA and dimensionality reduction is just the opposite of my aim for my life. I want to live a full life, and though my principle component of love and family will ideally stay central, I would like to experience this vast universe as fully as possible during my short stint here. As a result, I take aims to diversify my life. I try new activities (newest addiction = paddle board surfing). Though I am a bit introverted, I do appreciate making a new friend more than most anything else in life. Reading. Traveling. Being a secondary school teacher (a job that provides ample free time in summers and encourages broad (if shallow) skills) has allowed me to revel in this. I only hope that this dimensionality expansion will continue as I progress through the remainder of my years. 
+
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
