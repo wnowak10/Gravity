@@ -24,7 +24,7 @@ Thus, I'm here to try something new. Neural nets, of course.
 
 We have super wide data. I figured I'd try to make things as simple as possible, to start.
 
-![](/images/keras/nn_str.png?raw=true)
+![](/images/keras/nn_str.jpg?raw=true)
 
 I connected each of the 14000+ inputs to a unique weight (using the model.add(Dense... functionality). (So there were 14000+ inputs, not just 3 as in image above.) Each input was hooked up to num_nodes number of hidden nodes (not just 4 as in image above). Then a linear combination of the activations from these hidden nodes were again linearly combined to generate prediction. I used regression, and not one hot...so the hidden nodes were combined and fed to just one final output node. 
 
