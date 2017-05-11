@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Basic Keras NN"
-date:   2017-3-11 19:45:31 +0530
+date:   2017-5-11 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 comments: true
@@ -9,7 +9,7 @@ comments: true
 
 I've not posted in some time...but the school year is winding down, so that means that my blogging should be winding up. I spent a lot of time working on the [Fragile Families Challenge](fragilefamilieschallenge.org)...and I detail some of my struggles in training predictive models on that data in this slideshow I drew up. Do check it out.
 
-<iframe src="https://docs.google.com/presentation/d/14DO9NXEFjr3cEwvQvEV5JHVcZwtFSFuu-9uSQZopGTo/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/14DO9NXEFjr3cEwvQvEV5JHVcZwtFSFuu-9uSQZopGTo/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="549" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 Some of the key points in that presentation:
 
