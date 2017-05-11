@@ -1,0 +1,177 @@
+---
+layout: post
+title:  "Basic Keras NN"
+date:   2017-3-11 19:45:31 +0530
+categories: data_science
+author: "wnowak10"
+comments: true
+---
+
+I've not posted in some time...but the school year is winding down, so that means that my blogging should be winding up. I spent a lot of time working on the [Fragile Families Challenge](fragilefamilieschallenge.org)...and I detail some of my struggles in training predictive models on that data in this slideshow I drew up. Do check it out.
+
+<iframe src="https://docs.google.com/presentation/d/14DO9NXEFjr3cEwvQvEV5JHVcZwtFSFuu-9uSQZopGTo/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+Some of the key points in that presentation:
+
+- one 
+- two
+
+
+
+After reading Michael Neilsen's awesome [book](http://neuralnetworksanddeeplearning.com/chap1.html) on neural networks, I took a lot of time learning to implement some basic ones in Google's [Tensorflow](https://www.tensorflow.org/). This was kinda a pain for a novice like me. So I recently started playing with Keras, which makes sense, as it is a higher level library meant to be run on top of Theano or Tensorflow (and more user friendly, as a result).
+
+I thank [Dan Does Data](https://www.youtube.com/user/dvbuntu) for his helpful youtube series, here. 
+
+Just to make sure I could get something up and running, I created some toy data with a strong signal, and some noise, and then tried to fit an LSTM model. Why LSTM? No real reason, other than I wanted to become familiar with this architecture. But there is no long term signal in my data that would make the "memory" component of an LSTM relevant. Nevertheless...
+
+## Data Creation
+	
+	# source activate py35
+	import numpy as np
+	import matplotlib.pylab as plt
+	x=np.linspace(0,100,100) #create sequence 0-100
+	a=np.random.rand(100) # create random noise
+
+	y=x>50 # define output! if x>50, y = 1, else 0
+	y=1*y # convert boolean (T/F) to 1 or 0
+
+Plot of x and y (here is the signal)
+![](/images/keras/figure1.png?raw=true)
+
+Plot of x and y (here is the noise...just to add some difficulty to this problem)
+![](/images/keras/figure2.png?raw=true)
+
+## Data preproccessing
+
+Pretty minimal, but some things we need to do before Keras.
+
+	# convert y to one hot
+	n_values=np.max(y) + 1       
+	y=np.eye(n_values)[y]
+
+A way to convert numpy list to one hots, from [K3--rnc](http://stackoverflow.com/questions/29831489/numpy-1-hot-array). This is easy to do when you are trying to convert a pandas df using pd.getdummies()...but I hadn't learned an easy way to convert an np array to dummies...thanks K3--rnc!
+
+	data=np.zeros([100,2,1])
+	data[:,0,0]=x
+	data[:,1,0]=a
+
+Here, we are following Dan Does Data's likely improper setup, but whatever. We need to have 3 dimensions for a Keras LSTM. [Jason Brownlee](http://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/) explains this:
+
+"The LSTM network expects the input data (X) to be provided with a specific array structure in the form of: *[samples, time steps, features]*.
+
+Currently, our data is in the form: *[samples, features]* and we are framing the problem as one time step for each sample."
+
+So we reshape our input data...although there is some discrepancy. Brownlee says it wants [samples, time steps, features]...but if I reshape input to [100, 1, 2], it won't compile. However, the shape above [100,2,1] works. Hmm. 
+
+Also, as I understand it, the time step aspect here has to do with the fact that I am fitting a model with memory. It says, how many samples do you have for each time period? In this case, we can think of having 100 samples in 1 time period, or 1 sample in 100 time periods. Given the above confusion, I am not sure how Keras is currently interpreting this, or if it makes a difference....help?
+
+## Model fit
+
+We fit an LSTM model with 10 hidden nodes. We then add a dense layer, which takes each of our 10 nodes to one of 2 output predictions, using a softmax activation. Adding the 'metrics' argument to the compile function allows us to visualize accuracy on training data easily, which is awesome. 
+
+	num_features=2
+	model = Sequential()
+	model.add(LSTM(10,input_shape=[num_features,1]))
+	model.add(Dense(2))
+	model.add(Activation('softmax'))
+	sgd=SGD()
+	model.compile(	loss='categorical_crossentropy',
+					optimizer=sgd,
+					metrics=["accuracy"])
+
+
+	h=model.fit(data, # train data
+				y, # train labels, in one hot
+				batch_size=50, 
+				nb_epoch=300, # how many epochs to train 
+				verbose=1 ) # show progress
+
+One question I had was about batch_size...I know what batch training means for a normal NN, but what about in RNNs or LSTMs?
+
+## Results
+
+Here, we see that, after 300 epochs, we've sorted through most of the noise and learned the rule, gaining ~100% accuracy. 
+
+![](/images/keras/figure3.png?raw=true)
+
+## Full code
+
+	import numpy as np
+	import matplotlib.pylab as plt
+	x=np.linspace(0,100,100) #0-100 linearly
+	y=x>50 # define output pretty decisively!
+	y=1*y
+	# plt.plot(x,y)
+	# plt.show()
+
+	a=np.random.rand(100) # noise
+	# plt.plot(a,y)
+	# plt.show()
+
+	# convert y to one hot
+	n_values=np.max(y) + 1       
+	y=np.eye(n_values)[y]
+
+	# source activate py35
+	# data=np.zeros([100,1,2])
+	data=np.zeros([100,2,1])
+
+	data[:,0,0]=x
+	data[:,1,0]=a
+
+
+	from keras.models import Sequential
+	from keras.layers.core import Dense, Activation
+	from keras.layers.recurrent import LSTM
+	from keras.optimizers import Adam, SGD
+
+	num_features=2
+	model = Sequential()
+	model.add(LSTM(10,input_shape=[num_features,1]))
+	# model.add(LSTM(16,input_dim=1))
+	model.add(Dense(2))
+	model.add(Activation('softmax'))
+	adam=SGD()
+	model.compile(	loss='categorical_crossentropy',
+					optimizer=adam,
+					metrics=["accuracy"])
+
+
+	h=model.fit(data, # train data
+				y, # train labels, in one hot
+				batch_size=50, 
+				nb_epoch=300, # how many epochs to train 
+				verbose=1 ) # show progress
+
+	x=model.predict_classes(data)
+
+	# plot accuracy over training epochs
+	plt.plot(h.history['acc'])
+	plt.show()
+
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
+
