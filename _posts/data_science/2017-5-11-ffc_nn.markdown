@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Basic Keras NN"
+title:  "Fragile Families Challenge Keras NN"
 date:   2017-5-11 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
@@ -20,7 +20,7 @@ That is where we left off. As you can also infer from the presentation, I tried 
 
 Thus, I'm here to try something new. Neural nets, of course.
 
-# Training using Keras Neural Network
+# Training using vanilla Keras neural network
 
 We have super wide data. I figured I'd try to make things as simple as possible, to start.
 
@@ -28,7 +28,7 @@ We have super wide data. I figured I'd try to make things as simple as possible,
 
 I connected each of the 14000+ inputs to a unique weight (using the model.add(Dense... functionality). (So there were 14000+ inputs, not just 3 as in image above.) Each input was hooked up to num_nodes number of hidden nodes (not just 4 as in image above). Then a linear combination of the activations from these hidden nodes were again linearly combined to generate prediction. I used regression, and not one hot...so the hidden nodes were combined and fed to just one final output node. 
 
-Code looked like:
+NN model code looked like:
 
 	# source activate py35
 	from keras.models import Sequential
@@ -36,7 +36,7 @@ Code looked like:
 	from keras.wrappers.scikit_learn import KerasRegressor
 
 	model = Sequential() # set up model
-	num_nodes = 400
+	num_nodes = 4
 	model.add(Dense(num_nodes, 
 		input_dim=x_tr.values.shape[1], 
 		kernel_initializer='normal', 
@@ -54,6 +54,21 @@ Code looked like:
 So that didn't learn at all.
 
 ![](/images/keras/stag.png?raw=true)
+
+And the code for preparing the predictions dataframe looked like:
+
+	df_prediction_good_cols = df_prediction[x_tr.columns.values] # keep the columns that are in training data...
+	from fancyimpute import SimpleFill
+	filled = SimpleFill('median').complete(df_prediction_good_cols)
+	# use trained model to predict
+	preds  = model.predict(filled,verbose=1)
+
+![](/images/keras/results400.png?raw=true)
+
+
+Similarly, I tried for 4, 40, and 4000 nodes...and there was no progress. So it seems that a simple 1 layered model is not the way to go. (Or maybe the problem is just that we are only getting 0-1 outputs...how do I get some decimal action??)
+
+
 
 
 
