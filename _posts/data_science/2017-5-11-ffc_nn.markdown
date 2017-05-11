@@ -51,6 +51,10 @@ Code looked like:
 		verbose=1, callbacks=None, validation_split=0.1, 
 		validation_data=(x_val.values,y_val.values))
 
+So that didn't learn at all.
+
+![](/images/keras/stag.png?raw=true)
+
 
 
 {% if page.comments %}
