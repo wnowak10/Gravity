@@ -7,8 +7,6 @@ author: "wnowak10"
 comments: true
 ---
 
-# Intro
-
 I've not posted in some time...but the school year is winding down, so that means that my blogging should be winding up. I spent a lot of time working on the [Fragile Families Challenge](fragilefamilieschallenge.org)...and I detail some of my struggles in training predictive models on that data in this slideshow I drew up. Do check it out.
 
 <iframe src="https://docs.google.com/presentation/d/14DO9NXEFjr3cEwvQvEV5JHVcZwtFSFuu-9uSQZopGTo/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="549" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -20,7 +18,7 @@ Some of the key points in that presentation:
 
 That is where we left off. As you can also infer from the presentation, I tried to do some elementary feature engineering, but it didn't get my any improvements in my leaderboard score.
 
-Thus, I'm here to try something new. Neural nets, of course. These can be a pain to train, so I want to try to document the process here for others to learn from (and for myself to reference in the future and take heart in when I have another training problem that just isn't progressing!). 
+Thus, I'm here to try something new. Neural nets, of course.
 
 # Training using vanilla Keras neural network
 
@@ -70,24 +68,8 @@ And the code for preparing the predictions dataframe looked like:
 
 Similarly, I tried for 4, 40, and 4000 nodes...and there was no progress. So it seems that a simple 1 layered model is not the way to go. (Or maybe the problem is just that we are only getting 0-1 outputs...how do I get some decimal action??)
 
-# Imbalanced train set
 
-The above was with the balanced training set (with more observations for more classes). Maybe I shouldn't do that? (This reminds me of the classic Seinfeld scene, which they unfortunately cut off before the great line "you're not supposed to do that!":)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lj79K60ahhQ" frameborder="0" allowfullscreen></iframe>
-
-Alas, with the imbalanced training set, we get none better...
-
-# What next? 
-
-So we're still getting no success. What to try next?
-
-- Perhaps we should standardize our features. Experts say this is pretty important, so let's try it and see if it helps.
-- Our models are flattening out in their learning pretty quickly...so we are getting suck in local minima (usually just a strategy of predict all 0). How can we avoid this?
-- We've yet to see our model output results other than 0 or 1. This makes me think I've simply made an error with my construction of the model. I could perhaps makes things easier and do 1 hot prediction. This probably makes the most sense, because material hardship is really a score out of 11. This would have the nice benefit of giving us predicted probabilities, instead of just values. 
-- Should we do deep learning? Adding layers? But how many?
-
-So let's try the above changes, and see if we can get our training data to over fit. Once we do that, perhaps we can back out a bit and find an optimum model.  We'll do this in another post. 
 
 
 {% if page.comments %}
