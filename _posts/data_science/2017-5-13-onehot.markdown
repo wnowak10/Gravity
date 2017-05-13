@@ -1,11 +1,28 @@
 ---
 layout: post
-title:  "Fragile Families Challenge Keras NN continued"
-date:   2017-5-12 19:45:31 +0530
+title:  "Fragile Families Challenge Keras NN continued - One Hot instead of regression?"
+date:   2017-5-13 19:45:31 +0530
 categories: data_science
 author: "wnowak10"
 comments: true
 ---
+
+So this is a continuation of a post about my efforts to train a neural network to solve the Fragile Families challenge. In previous posts, I explained how my current models just weren't working well.
+
+Since I am trying to predict a measure of poverty which is derived from 11 survey questions, maybe it would make better sense for the model to predict 11 outputs, each representing, perhaps, a softmax probability...this seems like it could be more sensible and interpretable than a plain, 1 output node, regressor neural network. It also seems like a good idea since the former one just hasn't been working. So let's try to make these changes and discuss in this blog post!
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 At the end of last post, I proposed trying each of these ideas.
 
