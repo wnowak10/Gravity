@@ -1,0 +1,110 @@
+---
+layout: post
+title:  "Fragile Families Challenge Keras NN continued"
+date:   2017-5-12 19:45:31 +0530
+categories: data_science
+author: "wnowak10"
+comments: true
+---
+
+At the end of last post, I proposed trying each of these ideas.
+
+"So we're still getting no success. What to try next?
+
+- Perhaps we should standardize our features. Experts say this is pretty important, so let's try it and see if it helps.
+- Our models are flattening out in their learning pretty quickly...so we are getting suck in local minima (usually just a strategy of predict all 0). How can we avoid this?
+- We've yet to see our model output results other than 0 or 1. This makes me think I've simply made an error with my construction of the model. I could perhaps makes things easier and do 1 hot prediction. This probably makes the most sense, because material hardship is really a score out of 11. This would have the nice benefit of giving us predicted probabilities, instead of just values. 
+- Should we do deep learning? Adding layers? But how many?"
+
+Also, my previous NN was only predicting 0 and 1 values, which makes me think there's an issue with how things have been set up. So let's try to resolve this before moving on to the other strategies above. 
+
+# Gettin' some decimals??
+
+I made some new dummy data...and tried to see if Keras regressor model would at least work there.
+
+Below, I code X as a sequence from [0, 1, 2, ....100]. Y is predicted by a sigmoid function, as follows.
+
+That is:
+
+
+
+A plot looks like:
+
+![](/images/keras/sig.png?raw=true)
+
+When I do this, I train a model that makes a) good predictions, and b) predictions besides 0 and 1. So the model architecture is OK...so WTF is wrong with my FFC model?
+
+To see the code for the demo, see below:
+
+	x=np.linspace(0,100,1000) #0-100 linearly
+	def sigmoid(x):
+	    return 1 / (1 + np.exp(-(x-50)))
+	y = sigmoid(x)
+	plt.plot(x, y)
+	plt.show()
+
+	from keras.models import Sequential
+	from keras.layers.core import Dense, Activation
+	from keras.layers.recurrent import LSTM
+	from keras.optimizers import Adam, SGD
+
+	model = Sequential() # set up model
+
+	# add fully connected layer that go to num_nodes hidden nodes
+	num_nodes = 1
+	# model.add(Dense(num_nodes, input_dim=x_tr.values.shape[1], kernel_initializer='normal', activation='relu'))
+	# model.add(Dense(num_nodes, input_dim=1, kernel_initializer='normal'))
+
+	model.add(Dense(num_nodes, input_shape=(1,), kernel_initializer='normal'))
+
+
+	model.add(Activation('relu'))
+
+	# use linear combination of weights and values from previous layer to make numeric prediction
+	# changing to sigmoid activation flattens output to 0-1
+	model.add(Dense(1, activation='sigmoid', kernel_initializer='normal'))
+
+	# minimize MSE
+	model.compile(loss='mean_squared_error',
+	              optimizer='adam')
+
+	num_epochs = 100
+	fitt = model.fit(x, y, batch_size=10, epochs=num_epochs, verbose=1, shuffle=True)
+
+	model.predict(test)
+
+	sigmoid(test)
+
+
+It is always both annoying and gratifying when you run a simple proof of concept test, and it both works and doesn't. My toy code above did what I wanted it to do. It learned a sigmoid model, and made appropriate output predictions (values *between* 0 and 1). BUT, this is annoying, because I don't then know why my FFC model is not doing just that. 
+
+Even more perplexing, if the model weren't learning it all, I'd think it would just spit out 0's. But the previous post showed that there are some outputs of 1. Why? There are no y value's of 1 in the training set, so it makes little sense to me that the model would learn to predict y = 1 in the prediction set. Hmmm...
+
+Anyways, I'll look into other problem solving approaches in another post, in an effort to keep these things relatively brief and bite-size-able. 
+
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wnowak10-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
+
