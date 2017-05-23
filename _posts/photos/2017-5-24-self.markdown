@@ -8,7 +8,7 @@ comments: true
 ---
 
 <a>
-	<img src="/images/photos/a.jpg" alt="Subset" style="width: 960; height: 720"/>
+	<img src="/images/photos/a.jpg" alt="Subset" style="width: 960; height: 720" class="rotateimg180"/>
 </a>
 
 {% if page.comments %}
