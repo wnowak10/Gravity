@@ -7,9 +7,9 @@ author: "wnowak10"
 comments: true
 ---
 
-
+Why doesnt this work?
 <a>
-	<img src="/images/photos/selfie.jpg" alt="Subset" style="width: 960; height: 720"/>
+	<img src="/images/photos/a.jpg" alt="Subset" style="width: 960; height: 720"/>
 </a>
 
 {% if page.comments %}
