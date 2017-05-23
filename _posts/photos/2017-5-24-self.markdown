@@ -9,7 +9,7 @@ comments: true
 
 
 <a>
-	<img src="/images/photos/self.jpg" alt="Subset" style="width: 960; height: 720"/>
+	<img src="/images/photos/selfie.jpg" alt="Subset" style="width: 960; height: 720"/>
 </a>
 
 {% if page.comments %}
