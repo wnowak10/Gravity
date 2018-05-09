@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Redshift and VPCs"
-date:   2017-5-22 19:45:31 +0530
+date:   2018-5-9 19:45:31 +0530
 categories: other
 author: "wnowak10"
 comments: true
